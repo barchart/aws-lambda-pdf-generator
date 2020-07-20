@@ -1,0 +1,48 @@
+service: serverless-headless-chrome
+
+frameworkVersion: ">=1.60.5 <2.0.0"
+
+custom:
+  stage: ${opt:stage, 'stage'}
+  cors:
+    origin: '*'
+    headers:
+      - Accept-Encoding
+      - Content-Type
+      - Content-Length
+      - X-Amz-Date
+      - Authorization
+      - X-Api-Key
+      - X-Amz-Security-Token
+      - X-Amz-User-Agent
+      - Access-Control-Allow-Origin
+      - Access-Control-Allow-Headers
+      - Access-Control-Allow-Methods
+    allowCredentials: false
+  apigwBinary:
+    types:
+      - '*/*'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  logRetentionInDays: 90
+  deploymentBucket: barchart-serverless-deployments
+
+  environment:
+    NODE_ENV: ${self:custom.stage}
+
+functions:
+  printPdf:
+    handler: lambda/api/print.handler
+    memorySize: 1536
+    timeout: 30
+    events:
+      - http:
+          path: /print
+          method: POST
+          cors:
+            ${self:custom.cors}
+
+plugins:
+  - serverless-apigw-binary

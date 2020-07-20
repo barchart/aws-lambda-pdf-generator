@@ -1,0 +1,5 @@
+.idea
+.serverless
+.webpack
+node_modules
+

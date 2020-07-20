@@ -1,0 +1,20 @@
+{
+  "name": "@barchart/aws-lambda-pdf-printer",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@barchart/common-node-js": "^3.14.0",
+    "@barchart/log4js-node-appenders": "^1.1.4",
+    "chrome-aws-lambda": "3.0.4",
+    "puppeteer-core": "^3.0.4",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "puppeteer": "^3.0.4",
+    "serverless-apigw-binary": "^0.4.4"
+  }
+}
