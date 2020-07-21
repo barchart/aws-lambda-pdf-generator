@@ -1,16 +1,14 @@
-const chromium = require('chrome-aws-lambda');
-
 const LambdaHelper = require('./../common/LambdaHelper');
-
-const puppeteer = chromium.puppeteer;
 
 module.exports = (() => {
 	'use strict';
 
 	return {
-		handler: (event, lambdaContext, callback) => {
+		handler: (chromium) => (event, lambdaContext, callback) => {
 			LambdaHelper.process('Print HTML page', event, callback, async (parser, responder) => {
 				const logger = LambdaHelper.getLogger();
+
+				const puppeteer = chromium.puppeteer;
 
 				const body = JSON.parse(Buffer.from(parser.getBody(), 'base64').toString());
 

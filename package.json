@@ -9,8 +9,6 @@
   "dependencies": {
     "@barchart/common-node-js": "^3.14.0",
     "@barchart/log4js-node-appenders": "^1.1.4",
-    "chrome-aws-lambda": "3.0.4",
-    "puppeteer-core": "^3.0.4",
     "source-map-support": "^0.5.19"
   },
   "devDependencies": {
@@ -19,7 +17,6 @@
     "gulp-prompt": "^1.2.0",
     "gulp-jshint": "^2.1.0",
     "jshint": "^2.10.3",
-    "puppeteer": "^3.0.4",
     "serverless-apigw-binary": "^0.4.4"
   }
 }

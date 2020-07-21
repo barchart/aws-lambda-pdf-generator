@@ -23,6 +23,9 @@ custom:
     types:
       - '*/*'
 
+package:
+  individually: true
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -33,13 +36,30 @@ provider:
     NODE_ENV: ${self:custom.stage}
 
 functions:
-  printPdf:
-    handler: lambda/api/print.handler
+  printPdf-chrome-v81:
+    handler: lambda/api/chrome-v81/print.handler
     memorySize: 1536
     timeout: 30
+    package:
+      exclude:
+        - lambda/api/chrome-v83/**
     events:
       - http:
-          path: /print
+          path: /print/chrome/v81
+          method: POST
+          cors:
+            ${self:custom.cors}
+
+  printPdf-chrome-v83:
+    handler: lambda/api/chrome-v83/print.handler
+    memorySize: 1536
+    timeout: 30
+    package:
+      exclude:
+        - lambda/api/chrome-v81/**
+    events:
+      - http:
+          path: /print/chrome/v83
           method: POST
           cors:
             ${self:custom.cors}

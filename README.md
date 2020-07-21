@@ -21,5 +21,6 @@ sls deploy --stage [stage|prod]
 ### Local testing
 
 ```
-sls invoke local  -f printPdf --path lambda/api/test/print.json --stage stage
+sls invoke local  -f printPdf-chrome-v81 --path lambda/api/chrome-v81/test/print.json --stage stage
+sls invoke local  -f printPdf-chrome-v83 --path lambda/api/chrome-v83/test/print.json --stage stage
 ```
