@@ -63,6 +63,11 @@ functions:
           method: POST
           cors:
             ${self:custom.cors}
+      - http:
+          path: /print
+          method: POST
+          cors:
+            ${self:custom.cors}
 
 plugins:
   - serverless-apigw-binary

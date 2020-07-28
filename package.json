@@ -2,6 +2,12 @@
   "name": "@barchart/aws-lambda-pdf-generator",
   "version": "1.0.3",
   "description": "Serverless application to 'print' PDF documents from HTML",
+  "contributors": [
+    {
+      "name": "Igor Losev",
+      "email": "igor.losev.it@gmail.com"
+    }
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
