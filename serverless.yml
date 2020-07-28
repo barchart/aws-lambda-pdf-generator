@@ -1,4 +1,4 @@
-service: serverless-headless-chrome
+service: serverless-headless-chrome-node12
 
 frameworkVersion: ">=1.60.5 <2.0.0"
 
@@ -36,13 +36,13 @@ provider:
     NODE_ENV: ${self:custom.stage}
 
 functions:
-  printPdf-chrome-v81:
-    handler: lambda/api/chrome-v81/print.handler
+  printPdf-v81:
+    handler: lambda/api/node-12/chrome-v81/print.handler
     memorySize: 1536
     timeout: 30
     package:
       exclude:
-        - lambda/api/chrome-v83/**
+        - lambda/api/node-12/chrome-v83/**
     events:
       - http:
           path: /print/chrome/v81
@@ -50,13 +50,13 @@ functions:
           cors:
             ${self:custom.cors}
 
-  printPdf-chrome-v83:
-    handler: lambda/api/chrome-v83/print.handler
+  printPdf-v83:
+    handler: lambda/api/node-12/chrome-v83/print.handler
     memorySize: 1536
     timeout: 30
     package:
       exclude:
-        - lambda/api/chrome-v81/**
+        - lambda/api/node-12/chrome-v81/**
     events:
       - http:
           path: /print/chrome/v83

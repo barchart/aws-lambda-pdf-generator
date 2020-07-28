@@ -83,7 +83,7 @@ gulp.task('release', gulp.series(
 ));
 
 gulp.task('lint', () => {
-	return gulp.src([ './**/*.js', '!./node_modules/**' ])
+	return gulp.src([ './**/*.js', '!./node_modules/**', '!./**/node_modules/**' ])
 		.pipe(jshint({ esversion: 9 }))
 		.pipe(jshint.reporter('default'))
 		.pipe(jshint.reporter('fail'));

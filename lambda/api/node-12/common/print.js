@@ -1,10 +1,10 @@
-const LambdaHelper = require('./../common/LambdaHelper');
+const LambdaHelper = require('./../../../common/LambdaHelper');
 
 module.exports = (() => {
 	'use strict';
 
 	return {
-		handler: (chromium) => (event, lambdaContext, callback) => {
+		bind: (chromium) => (event, lambdaContext, callback) => {
 			LambdaHelper.process('Print HTML page', event, callback, async (parser, responder) => {
 				const logger = LambdaHelper.getLogger();
 
