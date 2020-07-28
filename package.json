@@ -19,6 +19,7 @@
     "gulp-git": "^2.9.0",
     "gulp-prompt": "^1.2.0",
     "gulp-jshint": "^2.1.0",
+    "gulp-replace": "^0.5.4",
     "jshint": "^2.10.3",
     "serverless-apigw-binary": "^0.4.4"
   },

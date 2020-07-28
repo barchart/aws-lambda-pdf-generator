@@ -4,7 +4,8 @@ const exec = require('child_process').exec,
 const gulp = require('gulp'),
 	git = require('gulp-git'),
 	jshint = require('gulp-jshint'),
-	prompt = require('gulp-prompt');
+	prompt = require('gulp-prompt'),
+	replace = require('gulp-replace');
 
 function getVersionFromPackage() {
 	return JSON.parse(fs.readFileSync('./package.json', 'utf8')).version;
@@ -51,6 +52,14 @@ gulp.task('bump-version', (cb) => {
 	});
 });
 
+gulp.task('embed-version', () => {
+	const version = getVersionFromPackage();
+
+	return gulp.src(['./docs/_coverpage.md'])
+		.pipe(replace(/[0-9]+\.[0-9]+\.[0-9]+/g, version))
+		.pipe(gulp.dest('./docs/'));
+});
+
 gulp.task('commit-changes', () => {
 	return gulp.src('.')
 		.pipe(git.add())
@@ -77,6 +86,7 @@ gulp.task('release', gulp.series(
 	'ensure-clean-working-directory',
 	'bump-choice',
 	'bump-version',
+	'embed-version',
 	'commit-changes',
 	'push-changes',
 	'create-tag'
