@@ -9,7 +9,7 @@
     }
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "dependencies": {
     "@barchart/common-node-js": "^3.14.0",
