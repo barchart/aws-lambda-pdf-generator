@@ -4,27 +4,11 @@
 
 A [Serverless](https://www.serverless.com/) application for generating PDF documents from HTML.
 
-### Deployment Guide
+### Documentation
 
-This application must use the Node.js version 12 runtime.
+Complete documentation for installation and operation can be found here in the ```docs``` folder. You can access the documentation site here:
 
-```shell
-npm install
-cd lambda/api/node-12/chrome-v81
-npm install
-cd lambda/api/node-12/chrome-v83
-npm install
-cd ../../../..
-sls deploy --stage stage
-sls deploy --stage prod
-```
-
-### Local Testing
-
-```
-sls invoke local  -f printPdf-v81 --path lambda/api/node-12/chrome-v81/test/print.json --stage stage
-sls invoke local  -f printPdf-v83 --path lambda/api/node-12/chrome-v83/test/print.json --stage stage
-```
+https://barchart.github.io/aws-lambda-pdf-generator/#/
 
 ### License
 
