@@ -2,4 +2,5 @@
 .serverless
 .webpack
 node_modules
+out.pdf
 

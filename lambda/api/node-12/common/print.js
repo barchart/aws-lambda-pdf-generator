@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 const LambdaHelper = require('./../../../common/LambdaHelper');
 
 module.exports = (() => {
@@ -72,6 +74,10 @@ module.exports = (() => {
 				}
 
 				if (context.success) {
+					if (false) {
+						fs.writeFile('./out.pdf', context.pdf);
+					}
+
 					responder.sendBinary(context.pdf, 'application/pdf');
 				} else {
 					responder.sendError('Failed to print pdf');
