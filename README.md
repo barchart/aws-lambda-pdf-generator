@@ -26,3 +26,7 @@ sls invoke local  -f printPdf-v81 --path lambda/api/node-12/chrome-v81/test/prin
 sls invoke local  -f printPdf-v83 --path lambda/api/node-12/chrome-v83/test/print.json --stage stage
 ```
 
+### License
+
+This software is provided under the MIT license.
+
