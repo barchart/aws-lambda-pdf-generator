@@ -6,7 +6,7 @@ A [Serverless](https://www.serverless.com/) application for generating PDF docum
 
 ### Documentation
 
-Complete documentation for installation and operation can be found here in the ```docs``` folder. Also, the documentation has been published as a website, here:
+Complete installation and operation documentation can be found in the ```docs``` folder. Also, the documentation is published here:
 
 https://barchart.github.io/aws-lambda-pdf-generator/#/
 
