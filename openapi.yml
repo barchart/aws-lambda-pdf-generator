@@ -6,28 +6,6 @@ info:
   version: 1.0.0
 
 components:
-  requestBodies:
-    Print:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              source:
-                type: string
-                description: Optional string to define the source of request
-                example: crude-oil-price-report
-              html:
-                type: string
-                description: HTML layout to print
-                example: '<html><head></head><body>test</body></html>'
-              pdfSettings:
-                type: object
-                description: Optional settings passed to page.pdf() call
-                example: { width: '100px' }
-            required:
-              - html
-
   responses:
     Success:
       description: Generated PDF file.
@@ -54,7 +32,25 @@ paths:
       tags:
         - Pdf
       requestBody:
-        $ref: '#/components/requestBodies/Print'
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                source:
+                  type: string
+                  description: Optional string to define the source of request
+                  example: crude-oil-price-report
+                html:
+                  type: string
+                  description: HTML layout to print
+                  example: '<html><head></head><body>test</body></html>'
+                pdfSettings:
+                  type: object
+                  description: Optional settings passed to page.pdf() call
+                  example: { width: '100px' }
+              required:
+                - html
       responses:
         '200':
           $ref: '#/components/responses/Success'
@@ -70,7 +66,25 @@ paths:
       tags:
         - Pdf
       requestBody:
-        $ref: '#/components/requestBodies/Print'
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                source:
+                  type: string
+                  description: Optional string to define the source of request
+                  example: crude-oil-price-report
+                html:
+                  type: string
+                  description: HTML layout to print
+                  example: '<html><head></head><body>test</body></html>'
+                pdfSettings:
+                  type: object
+                  description: Optional settings passed to page.pdf() call
+                  example: { width: '100px' }
+              required:
+                - html
       responses:
         '200':
           $ref: '#/components/responses/Success'
@@ -86,7 +100,25 @@ paths:
       tags:
         - Pdf
       requestBody:
-        $ref: '#/components/requestBodies/Print'
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                source:
+                  type: string
+                  description: Optional string to define the source of request
+                  example: crude-oil-price-report
+                html:
+                  type: string
+                  description: HTML layout to print
+                  example: '<html><head></head><body>test</body></html>'
+                pdfSettings:
+                  type: object
+                  description: Optional settings passed to page.pdf() call
+                  example: { width: '100px' }
+              required:
+                - html
       responses:
         '200':
           $ref: '#/components/responses/Success'

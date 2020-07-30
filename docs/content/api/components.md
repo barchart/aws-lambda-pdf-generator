@@ -2,6 +2,12 @@
 
 ## Responses 
 
+### Success :id=responsessuccess
+> Generated PDF file.
+
+
+* * *
+
 ### BadRequest :id=responsesbadrequest
 > Bad request.
 
