@@ -6,7 +6,37 @@ info:
   version: 1.0.0
 
 components:
+  requestBodies:
+    Print:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              source:
+                type: string
+                description: Optional string to define the source of request
+                example: crude-oil-price-report
+              html:
+                type: string
+                description: HTML layout to print
+                example: '<html><head></head><body>test</body></html>'
+              pdfSettings:
+                type: object
+                description: Optional settings passed to page.pdf() call
+                example: { width: '100px' }
+            required:
+              - html
+
   responses:
+    Success:
+      description: Generated PDF file.
+      content:
+        application/pdf:
+          schema:
+            type: string
+            format: binary
+
     BadRequest:
       description: Bad request.
 
@@ -19,45 +49,48 @@ tags:
 paths:
   /print:
     post:
-      summary: Prints PDF page from html layout.
-      description: Prints PDF page from html layout.
+      summary: Prints PDF page from html layout (chrome v83 by default).
+      description: Prints PDF page from html layout (chrome v83 by default).
       tags:
         - Pdf
       requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                source:
-                  type: string
-                  description: Optional string to define the source of request
-                  example: crude-oil-price-report
-                html:
-                  type: string
-                  description: HTML layout to print
-                  example: '<html><head></head><body>test</body></html>'
-                pdfSettings:
-                  type: object
-                  description: Optional settings passed to page.pdf() call
-                  example: { width: '100px' }
-              required:
-                - html
+        $ref: '#/components/requestBodies/Print'
       responses:
         '200':
-          description: Generated PDF file.
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
+          $ref: '#/components/responses/Success'
         '400':
           $ref: '#/components/responses/BadRequest'
         '500':
           $ref: '#/components/responses/ServerError'
 
   /print/chrome/v81:
-    $ref: '#/paths/~1print'
+    post:
+      summary: Prints PDF page from html layout using chrome v81.
+      description: Prints PDF page from html layout using chrome v81.
+      tags:
+        - Pdf
+      requestBody:
+        $ref: '#/components/requestBodies/Print'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
 
   /print/chrome/v83:
-    $ref: '#/paths/~1print'
+    post:
+      summary: Prints PDF page from html layout using chrome v83.
+      description: Prints PDF page from html layout using chrome v83.
+      tags:
+        - Pdf
+      requestBody:
+        $ref: '#/components/requestBodies/Print'
+      responses:
+        '200':
+          $ref: '#/components/responses/Success'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
