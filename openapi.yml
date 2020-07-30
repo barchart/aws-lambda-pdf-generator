@@ -1,0 +1,63 @@
+openapi: 3.0.0
+
+info:
+  title: PDF generator API
+  description: PDF generator API
+  version: 1.0.0
+
+components:
+  responses:
+    BadRequest:
+      description: Bad request.
+
+    ServerError:
+      description: Server error.
+
+tags:
+  - name: Pdf
+
+paths:
+  /print:
+    post:
+      summary: Prints PDF page from html layout.
+      description: Prints PDF page from html layout.
+      tags:
+        - Pdf
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                source:
+                  type: string
+                  description: Optional string to define the source of request
+                  example: crude-oil-price-report
+                html:
+                  type: string
+                  description: HTML layout to print
+                  example: '<html><head></head><body>test</body></html>'
+                pdfSettings:
+                  type: object
+                  description: Optional settings passed to page.pdf() call
+                  example: { width: '100px' }
+              required:
+                - html
+      responses:
+        '200':
+          description: Generated PDF file.
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/ServerError'
+
+  /print/chrome/v81:
+    $ref: '#/paths/~1print'
+
+  /print/chrome/v83:
+    $ref: '#/paths/~1print'
