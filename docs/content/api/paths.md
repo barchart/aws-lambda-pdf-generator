@@ -16,7 +16,7 @@
 | ---- | ---- | -------- | -------- | ----------- |
 | source | <code>String</code> | false | false | Optional string to define the source of request |
 | html | <code>String</code> | true | false | HTML layout to print |
-| pdfSettings | <code>Object</code> | false | false | Optional settings passed to page.pdf() call |
+| settings | <code>Object</code> | false | false | Optional [settings](https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagepdfoptions) passed to page.pdf() |
 
 **Example**:
 
@@ -24,7 +24,7 @@
 {
   "source": "crude-oil-price-report",
   "html": "<html><head></head><body>test</body></html>",
-  "pdfSettings": {
+  "settings": {
     "width": "100px"
   }
 }
@@ -60,7 +60,7 @@
 | ---- | ---- | -------- | -------- | ----------- |
 | source | <code>String</code> | false | false | Optional string to define the source of request |
 | html | <code>String</code> | true | false | HTML layout to print |
-| pdfSettings | <code>Object</code> | false | false | Optional settings passed to page.pdf() call |
+| settings | <code>Object</code> | false | false | Optional [settings](https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagepdfoptions) passed to page.pdf() |
 
 **Example**:
 
@@ -68,7 +68,7 @@
 {
   "source": "crude-oil-price-report",
   "html": "<html><head></head><body>test</body></html>",
-  "pdfSettings": {
+  "settings": {
     "width": "100px"
   }
 }
@@ -104,7 +104,7 @@
 | ---- | ---- | -------- | -------- | ----------- |
 | source | <code>String</code> | false | false | Optional string to define the source of request |
 | html | <code>String</code> | true | false | HTML layout to print |
-| pdfSettings | <code>Object</code> | false | false | Optional settings passed to page.pdf() call |
+| settings | <code>Object</code> | false | false | Optional [settings](https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagepdfoptions) passed to page.pdf() |
 
 **Example**:
 
@@ -112,7 +112,7 @@
 {
   "source": "crude-oil-price-report",
   "html": "<html><head></head><body>test</body></html>",
-  "pdfSettings": {
+  "settings": {
     "width": "100px"
   }
 }
