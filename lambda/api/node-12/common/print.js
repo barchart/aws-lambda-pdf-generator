@@ -15,7 +15,7 @@ module.exports = (() => {
 				const body = JSON.parse(Buffer.from(parser.getBody(), 'base64').toString());
 
 				const html = body.html || null;
-				const settings = body.pdfSettings || null;
+				const settings = body.settings || null;
 
 				if (html === null) {
 					return responder.send('Failed to print pdf. Missing html layout', 400);
