@@ -1,6 +1,9 @@
 const fs = require('fs');
 
-const LambdaHelper = require('./../../../common/LambdaHelper');
+const FailureReason = require('@barchart/common-js/api/failures/FailureReason');
+
+const LambdaHelper = require('./../../../common/LambdaHelper'),
+	PrinterFailureTypes = require('./../../../common/PrinterFailureTypes');
 
 module.exports = (() => {
 	'use strict';
@@ -14,11 +17,12 @@ module.exports = (() => {
 
 				const body = JSON.parse(Buffer.from(parser.getBody(), 'base64').toString());
 
+				const source = body.source || null;
 				const html = body.html || null;
 				const settings = body.settings || null;
 
 				if (html === null) {
-					return responder.send('Failed to print pdf. Missing html layout', 400);
+					throw new FailureReason().addItem(PrinterFailureTypes.PRINT_FAILED_NO_HTML_LAYOUT);
 				}
 
 				const context = { };
