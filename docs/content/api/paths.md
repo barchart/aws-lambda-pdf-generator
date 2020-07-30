@@ -14,9 +14,9 @@
 
 | Name | Type | Required | Nullable | Description |
 | ---- | ---- | -------- | -------- | ----------- |
-| source | <code>String</code> | false | false | Optional string to define the source of request |
-| html | <code>String</code> | false | false | HTML layout to print |
-| pdfSettings | <code>Object</code> | false | false | Optional settings passed to page.pdf() call |
+| source | <code>String</code> | true | false | Optional string to define the source of request |
+| html | <code>String</code> | true | false | HTML layout to print |
+| pdfSettings | <code>Object</code> | true | false | Optional settings passed to page.pdf() call |
 
 **Example**:
 
@@ -58,9 +58,9 @@
 
 | Name | Type | Required | Nullable | Description |
 | ---- | ---- | -------- | -------- | ----------- |
-| source | <code>String</code> | false | false | Optional string to define the source of request |
-| html | <code>String</code> | false | false | HTML layout to print |
-| pdfSettings | <code>Object</code> | false | false | Optional settings passed to page.pdf() call |
+| source | <code>String</code> | true | false | Optional string to define the source of request |
+| html | <code>String</code> | true | false | HTML layout to print |
+| pdfSettings | <code>Object</code> | true | false | Optional settings passed to page.pdf() call |
 
 **Example**:
 
@@ -102,9 +102,9 @@
 
 | Name | Type | Required | Nullable | Description |
 | ---- | ---- | -------- | -------- | ----------- |
-| source | <code>String</code> | false | false | Optional string to define the source of request |
-| html | <code>String</code> | false | false | HTML layout to print |
-| pdfSettings | <code>Object</code> | false | false | Optional settings passed to page.pdf() call |
+| source | <code>String</code> | true | false | Optional string to define the source of request |
+| html | <code>String</code> | true | false | HTML layout to print |
+| pdfSettings | <code>Object</code> | true | false | Optional settings passed to page.pdf() call |
 
 **Example**:
 
