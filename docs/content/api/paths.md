@@ -15,7 +15,7 @@
 | Name | Type | Required | Nullable | Description |
 | ---- | ---- | -------- | -------- | ----------- |
 | source | <code>String</code> | false | false | Optional string to define the source of request |
-| html | <code>String</code> | true | false | HTML layout to print |
+| html | <code>String</code> | false | false | HTML layout to print |
 | settings | <code>Object</code> | false | false | Optional [settings](https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagepdfoptions) passed to page.pdf() |
 
 **Example**:
@@ -59,7 +59,7 @@
 | Name | Type | Required | Nullable | Description |
 | ---- | ---- | -------- | -------- | ----------- |
 | source | <code>String</code> | false | false | Optional string to define the source of request |
-| html | <code>String</code> | true | false | HTML layout to print |
+| html | <code>String</code> | false | false | HTML layout to print |
 | settings | <code>Object</code> | false | false | Optional [settings](https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagepdfoptions) passed to page.pdf() |
 
 **Example**:
@@ -103,7 +103,7 @@
 | Name | Type | Required | Nullable | Description |
 | ---- | ---- | -------- | -------- | ----------- |
 | source | <code>String</code> | false | false | Optional string to define the source of request |
-| html | <code>String</code> | true | false | HTML layout to print |
+| html | <code>String</code> | false | false | HTML layout to print |
 | settings | <code>Object</code> | false | false | Optional [settings](https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagepdfoptions) passed to page.pdf() |
 
 **Example**:
