@@ -28,9 +28,10 @@ module.exports = (() => {
 				const context = { };
 
 				context.browser = null;
+				context.version = null;
 
 				try {
-					logger.debug('Launching headless chrome');
+					logger.debug(`Launching headless chrome for [ ${source} ]`);
 
 					context.browser = await puppeteer.launch({
 						args: chromium.args,
@@ -38,13 +39,15 @@ module.exports = (() => {
 						ignoreHTTPSErrors: true
 					});
 
-					logger.info(`Launched headless chrome [ ${await context.browser.version()} ]`);
+					context.version = await context.browser.version();
+
+					logger.info(`Launched headless chrome [ ${context.version} ] for [ ${source} ]`);
 
 					const page = await context.browser.newPage();
 
-					page.on('console', (error) => {
-						for (let i = 0; i < error.args().length; ++i) {
-							logger.info(`${i}: ${error.args()[i]}`);
+					page.on('console', (message) => {
+						for (let i = 0; i < message.args().length; ++i) {
+							logger.info(`[ ${i} ] Console: ${message.args()[i]}`);
 						}
 					});
 
@@ -52,40 +55,34 @@ module.exports = (() => {
 						logger.error(error);
 					});
 
-					logger.debug('Printing html as pdf');
+					logger.debug(`Printing HTML layout for [ ${source} ] [ ${html.length} ] as PDF`);
 
 					await page.setContent(html, { waitUntil: 'networkidle0' });
 
 					context.pdf = await page.pdf(settings || { });
 
-					logger.info('Printed html to pdf');
+					logger.info(`Printed HTML layout for [ ${source} ] [ ${html.length} ] as PDF`);
 
 					await page.close();
+				} catch (e) {
+					logger.error(e);
 
-					context.success = true;
-				} catch (error) {
-					logger.error(error);
-
-					context.success = false;
+					throw e;
 				} finally {
 					if (context.browser !== null) {
-						logger.debug('Closing browser');
+						logger.debug(`Closing headless chrome [ ${context.version} ] for [ ${source} ]`);
 
 						await context.browser.close();
 
-						logger.info('Closed browser');
+						logger.info(`Closed headless chrome [ ${context.version} ] for [ ${source} ]`);
 					}
 				}
 
-				if (context.success) {
-					if (false) {
-						fs.writeFile('./out.pdf', context.pdf);
-					}
-
-					responder.sendBinary(context.pdf, 'application/pdf');
-				} else {
-					responder.sendError('Failed to print pdf');
+				if (false) {
+					fs.writeFile('./out.pdf', context.pdf);
 				}
+
+				return responder.sendBinary(context.pdf, 'application/pdf');
 			});
 		}
 	};

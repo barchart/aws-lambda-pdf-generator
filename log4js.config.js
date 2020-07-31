@@ -5,7 +5,7 @@ const getPattern = colored => colored ? '%[%c - %m% %]' : '%c - %m%';
 module.exports = {
 	default: {
 		categories: {
-			default: { appenders: ['lambda'], level: 'info' },
+			default: { appenders: [ 'lambda' ], level: 'debug' },
 			'LambdaHelper/Event': { appenders: [ 'lambda' ], level: 'debug' }
 		},
 		appenders: {
