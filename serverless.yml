@@ -23,9 +23,6 @@ custom:
     types:
       - '*/*'
 
-package:
-  individually: true
-
 provider:
   name: aws
   runtime: nodejs12.x
@@ -34,6 +31,9 @@ provider:
 
   environment:
     NODE_ENV: ${self:custom.stage}
+
+package:
+  individually: true
 
 functions:
   printPdf-v81:
