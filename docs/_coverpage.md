@@ -2,5 +2,4 @@
 
 > Serverless application that coverts HTML to PDF
 
-[Product Overview](/content/product_overview)
 [Quick Start](/content/quick_start)

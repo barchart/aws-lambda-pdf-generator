@@ -3,7 +3,7 @@ service: serverless-headless-chrome-node12
 frameworkVersion: ">=1.60.5 <2.0.0"
 
 custom:
-  stage: ${opt:stage, 'stage'}
+  stage: ${opt:stage, 'prod'}
   cors:
     origin: '*'
     headers:

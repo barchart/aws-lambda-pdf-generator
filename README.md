@@ -6,7 +6,7 @@
 
 ## Implementation
 
-This application uses the [Serverless](https://www.serverless.com/) framework to create a web service using [AWS API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/). The Lambda function renders the PDF document using [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://github.com/alixaxel/chrome-aws-lambda).
+This application uses the [Serverless](https://www.serverless.com/) framework to create a web service using [AWS API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/). Consumers ```POST``` HTML documents to the web service and Lambda functions render the HTML as PDF using [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://github.com/alixaxel/chrome-aws-lambda).
 
 ### Documentation
 
