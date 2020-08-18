@@ -4,6 +4,10 @@
   "description": "Serverless application that coverts HTML to PDF",
   "contributors": [
     {
+      "name": "Bryan Ingle",
+      "email": "bryan.ingle@barchart.com"
+    },
+    {
       "name": "Igor Losev",
       "email": "igor.losev.it@gmail.com"
     }
