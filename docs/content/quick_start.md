@@ -64,7 +64,7 @@ sls invoke local -f printPdf-v81 --path lambda/api/node-12/chrome-v81/test/print
 sls invoke local -f printPdf-v83 --path lambda/api/node-12/chrome-v83/test/print.json
 ```
 
-After deployment, you can test the web service by issuing a ```POST``` request to the actual web service. Here is an example cURL request (obviosuly, you'll need to correct the hostname).
+After deployment, you can test the web service by issuing a ```POST``` request to the actual web service. Here is an example cURL command (obviosuly, you'll need to correct the hostname).
 
 ```shell
 curl 'https://uvw4xxcjtg.execute-api.us-east-1.amazonaws.com/test/print' \
