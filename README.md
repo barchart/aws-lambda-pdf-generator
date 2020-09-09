@@ -6,7 +6,7 @@
 
 ### Implementation
 
-The [Serverless](https://www.serverless.com/) framework is used to create a web service on the AWS cloud using [AWS API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/). Consumers ```POST``` HTML documents and service renders PDF documents using [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://github.com/alixaxel/chrome-aws-lambda).
+The [Serverless](https://www.serverless.com/) framework is used to create a web service on the AWS cloud using [AWS API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/). Consumers ```POST``` an HTML document and the service renders a PDF document using [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://github.com/alixaxel/chrome-aws-lambda).
 
 ### Documentation
 
