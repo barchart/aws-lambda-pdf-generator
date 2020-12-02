@@ -1,6 +1,6 @@
 service: serverless-headless-chrome-node12
 
-frameworkVersion: ">=1.60.5 <2.0.0"
+frameworkVersion: ">=2.13.0 <3.0.0"
 
 custom:
   stage: ${opt:stage, 'prod'}
@@ -38,6 +38,7 @@ package:
 functions:
   printPdf-v81:
     handler: lambda/api/node-12/chrome-v81/print.handler
+    description: Generates a PDF from HTML (using Chrome 81)
     memorySize: 1536
     timeout: 30
     package:
@@ -47,11 +48,11 @@ functions:
       - http:
           path: /print/chrome/v81
           method: POST
-          cors:
-            ${self:custom.cors}
+          cors: ${self:custom.cors}
 
   printPdf-v83:
     handler: lambda/api/node-12/chrome-v83/print.handler
+    description: Generates a PDF from HTML (using Chrome 83)
     memorySize: 1536
     timeout: 30
     package:
@@ -61,13 +62,14 @@ functions:
       - http:
           path: /print/chrome/v83
           method: POST
-          cors:
-            ${self:custom.cors}
+          cors: ${self:custom.cors}
       - http:
           path: /print
           method: POST
-          cors:
-            ${self:custom.cors}
+          cors: ${self:custom.cors}
+
+resources:
+  Description: API for generating PDF from HTML
 
 plugins:
   - serverless-apigw-binary
