@@ -32,6 +32,9 @@ provider:
   environment:
     NODE_ENV: ${self:custom.stage}
 
+  apiGateway:
+    shouldStartNameWithService: true
+
 package:
   individually: true
 
