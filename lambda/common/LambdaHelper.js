@@ -20,7 +20,7 @@ module.exports = (() => {
 
 					return execute(description, event, callback, processor)
 						.then(() => {
-							logger.info('Finished [', description,']');
+							logger.info('Finished [', description, ']');
 						});
 				});
 		},
