@@ -4,12 +4,12 @@ frameworkVersion: ">=2.13.0 <3.0.0"
 
 layers:
   HeadlessChrome:
-    name: serverless-headless-chrome
+    name: serverless-headless-chrome-v83
     compatibleRuntimes:
       - nodejs12.x
-    description: Layer for puppeteer to launch headless chrome
+    description: Layer for puppeteer to launch headless chrome v83
     package:
-      artifact: layers/chrome.zip
+      artifact: layers/chrome-v83.zip
 
 custom:
   stage: ${opt:stage, 'stage'}
