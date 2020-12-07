@@ -20,5 +20,6 @@ yarn deploy:[stage|prod]
 
 ```shell
 sls invoke local -f printPdf --path print/test/print.json
+sls invoke local -f printPdf --path print/test/print.5MB.json
 ```
 

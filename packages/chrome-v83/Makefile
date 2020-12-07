@@ -22,7 +22,7 @@ make-layer:
 move-layer:
 	@echo "Moving layer..." \
 	&& mkdir --parents layers \
-	&& mv chrome-aws-lambda/chrome_aws_lambda.zip ./layers/chrome.zip
+	&& mv chrome-aws-lambda/chrome_aws_lambda.zip ./layers/chrome-$(CHROME_TAG).zip
 
 clean:
 	@echo "Cleaning..." \

@@ -1,0 +1,121 @@
+{
+  "resource": "/print",
+  "path": "/print",
+  "httpMethod": "POST",
+  "headers": {
+    "Accept": "*/*",
+    "Accept-Encoding": "gzip, deflate",
+    "cache-control": "no-cache",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "PL",
+    "Content-Type": "text/plain",
+    "Host": "zh485z5j6g.execute-api.us-east-1.amazonaws.com",
+    "Postman-Token": "6d7f1ff1-49f8-4f51-8029-6242ad894521",
+    "User-Agent": "PostmanRuntime/7.1.5",
+    "Via": "1.1 7cbbe7c1ce97c17d13c405bf29da748d.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "ERnt-g2O5gf7VA-zJxbWI7dOceRQwkGP6JHnsI2-1FPqIgSlSnGzDQ==",
+    "X-Amzn-Trace-Id": "Root=1-5fcd7a22-7eaffd834484e1a52707d91a",
+    "X-Forwarded-For": "80.238.108.122, 54.239.171.99",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "multiValueHeaders": {
+    "Accept": [
+      "*/*"
+    ],
+    "Accept-Encoding": [
+      "gzip, deflate"
+    ],
+    "cache-control": [
+      "no-cache"
+    ],
+    "CloudFront-Forwarded-Proto": [
+      "https"
+    ],
+    "CloudFront-Is-Desktop-Viewer": [
+      "true"
+    ],
+    "CloudFront-Is-Mobile-Viewer": [
+      "false"
+    ],
+    "CloudFront-Is-SmartTV-Viewer": [
+      "false"
+    ],
+    "CloudFront-Is-Tablet-Viewer": [
+      "false"
+    ],
+    "CloudFront-Viewer-Country": [
+      "PL"
+    ],
+    "Content-Type": [
+      "text/plain"
+    ],
+    "Host": [
+      "zh485z5j6g.execute-api.us-east-1.amazonaws.com"
+    ],
+    "Postman-Token": [
+      "6d7f1ff1-49f8-4f51-8029-6242ad894521"
+    ],
+    "User-Agent": [
+      "PostmanRuntime/7.1.5"
+    ],
+    "Via": [
+      "1.1 7cbbe7c1ce97c17d13c405bf29da748d.cloudfront.net (CloudFront)"
+    ],
+    "X-Amz-Cf-Id": [
+      "ERnt-g2O5gf7VA-zJxbWI7dOceRQwkGP6JHnsI2-1FPqIgSlSnGzDQ=="
+    ],
+    "X-Amzn-Trace-Id": [
+      "Root=1-5fcd7a22-7eaffd834484e1a52707d91a"
+    ],
+    "X-Forwarded-For": [
+      "80.238.108.122, 54.239.171.99"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ]
+  },
+  "queryStringParameters": null,
+  "multiValueQueryStringParameters": null,
+  "pathParameters": null,
+  "stageVariables": null,
+  "requestContext": {
+    "resourceId": "tp72cl",
+    "resourcePath": "/print",
+    "httpMethod": "POST",
+    "extendedRequestId": "XKAFdFlnIAMFsHQ=",
+    "requestTime": "07/Dec/2020:00:41:06 +0000",
+    "path": "/stage/print",
+    "accountId": "081121675754",
+    "protocol": "HTTP/1.1",
+    "stage": "stage",
+    "domainPrefix": "zh485z5j6g",
+    "requestTimeEpoch": 1607301666882,
+    "requestId": "56de0b8e-8107-4f2d-bce7-b5d25f72fdd9",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "sourceIp": "80.238.108.122",
+      "principalOrgId": null,
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "PostmanRuntime/7.1.5",
+      "user": null
+    },
+    "domainName": "zh485z5j6g.execute-api.us-east-1.amazonaws.com",
+    "apiId": "zh485z5j6g"
+  },
+  "body": "eyJzb3VyY2UiOiJ0ZXN0aW5nIiwiaHRtbCI6IjxodG1sPjxib2R5PjxoMT5IZWxsbyBXb3JsZDwvaDE+PGltZyBzcmM9XCJodHRwczovL3VwbG9hZC53aWtpbWVkaWEub3JnL3dpa2lwZWRpYS9jb21tb25zLzIvMmQvU25ha2VfUml2ZXJfJTI4NW1iJTI5LmpwZ1wiPjxkaXY+WW91IGhhdmUgY29udmVydGVkIGFuIEhUTUwgZG9jdW1lbnQgaW50byBhIFBERiBmaWxlLjwvZGl2PjxoMT5IZWxsbyBXb3JsZDwvaDE+PGRpdj5Zb3UgaGF2ZSBjb252ZXJ0ZWQgYW4gSFRNTCBkb2N1bWVudCBpbnRvIGEgUERGIGZpbGUuPC9kaXY+PGgxPkhlbGxvIFdvcmxkPC9oMT4ifQ==",
+  "isBase64Encoded": true
+}

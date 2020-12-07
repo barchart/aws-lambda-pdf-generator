@@ -13,7 +13,9 @@
     }
   ],
   "scripts": {
-    "lint": "jshint ./ --exclude './node_modules/**'"
+    "lint": "jshint ./ --exclude './node_modules/**'",
+    "predeploy:stage": "make",
+    "deploy:stage": "serverless deploy --stage stage"
   },
   "dependencies": {
     "@barchart/aws-lambda-pdf-generator-common": "^1.1.1",
