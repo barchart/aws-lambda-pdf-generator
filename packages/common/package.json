@@ -1,0 +1,25 @@
+{
+  "name": "@barchart/aws-lambda-pdf-generator-common",
+  "version": "1.1.1",
+  "description": "Common modules used for pdf generation",
+  "contributors": [
+    {
+      "name": "Bryan Ingle",
+      "email": "bryan.ingle@barchart.com"
+    },
+    {
+      "name": "Igor Losev",
+      "email": "igor.losev.it@gmail.com"
+    }
+  ],
+  "scripts": {
+    "lint": "jshint ./ --exclude './node_modules/**'"
+  },
+  "dependencies": {
+    "@barchart/common-js": "^3.20.1",
+    "@barchart/common-node-js": "^3.20.1",
+    "source-map-support": "^0.5.19"
+  },
+  "license": "MIT",
+  "private": true
+}

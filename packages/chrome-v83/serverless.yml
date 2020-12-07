@@ -1,9 +1,18 @@
-service: serverless-headless-chrome-node12
+service: serverless-headless-chrome-v83
 
 frameworkVersion: ">=2.13.0 <3.0.0"
 
+layers:
+  HeadlessChrome:
+    name: serverless-headless-chrome
+    compatibleRuntimes:
+      - nodejs12.x
+    description: Layer for puppeteer to launch headless chrome
+    package:
+      artifact: layers/chrome.zip
+
 custom:
-  stage: ${opt:stage, 'prod'}
+  stage: ${opt:stage, 'stage'}
   cors:
     origin: '*'
     headers:
@@ -32,6 +41,13 @@ provider:
   environment:
     NODE_ENV: ${self:custom.stage}
 
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+        - s3:PutObject
+      Resource: arn:aws:s3:::barchart-aws-lambda-responses/*
+
   apiGateway:
     shouldStartNameWithService: true
 
@@ -39,33 +55,14 @@ package:
   individually: true
 
 functions:
-  printPdf-v81:
-    handler: lambda/api/node-12/chrome-v81/print.handler
-    description: Generates a PDF from HTML (using Chrome 81)
+  printPdf:
+    handler: print/print.handler
+    description: Generates a PDF from HTML (using Chrome v83)
     memorySize: 1536
     timeout: 30
-    package:
-      exclude:
-        - lambda/api/node-12/chrome-v83/**
+    layers:
+      - { Ref: HeadlessChromeLambdaLayer }
     events:
-      - http:
-          path: /print/chrome/v81
-          method: POST
-          cors: ${self:custom.cors}
-
-  printPdf-v83:
-    handler: lambda/api/node-12/chrome-v83/print.handler
-    description: Generates a PDF from HTML (using Chrome 83)
-    memorySize: 1536
-    timeout: 30
-    package:
-      exclude:
-        - lambda/api/node-12/chrome-v81/**
-    events:
-      - http:
-          path: /print/chrome/v83
-          method: POST
-          cors: ${self:custom.cors}
       - http:
           path: /print
           method: POST
@@ -75,4 +72,5 @@ resources:
   Description: API for generating PDF from HTML
 
 plugins:
+  - serverless-webpack
   - serverless-apigw-binary

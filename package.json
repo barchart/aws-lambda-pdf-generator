@@ -1,36 +1,24 @@
 {
   "name": "@barchart/aws-lambda-pdf-generator",
-  "version": "1.1.1",
-  "description": "Serverless application that coverts HTML to PDF",
-  "contributors": [
-    {
-      "name": "Bryan Ingle",
-      "email": "bryan.ingle@barchart.com"
-    },
-    {
-      "name": "Igor Losev",
-      "email": "igor.losev.it@gmail.com"
-    }
+  "workspaces": [
+    "packages/*"
   ],
-  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/barchart/barchart/aws-lambda-pdf-generator.git"
   },
-  "dependencies": {
-    "@barchart/common-js": "^3.14.0",
-    "@barchart/common-node-js": "^3.14.0",
-    "@barchart/log4js-node-appenders": "^1.1.4",
-    "source-map-support": "^0.5.19"
+  "scripts": {
+    "clean": "lerna clean --yes && rm -rf node_modules",
+    "lint": "lerna run lint --stream",
+    "preversion": "git diff --exit-code",
+    "release": "lerna version -m 'Release. Bump version number %v' --tag-version-prefix='' --force-publish"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-git": "^2.9.0",
-    "gulp-prompt": "^1.2.0",
-    "gulp-jshint": "^2.1.0",
-    "gulp-replace": "^0.5.4",
     "jshint": "^2.10.3",
-    "serverless-apigw-binary": "^0.4.4"
+    "serverless-apigw-binary": "^0.4.4",
+    "serverless-webpack": "5.3.5",
+    "webpack": "^5.9.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "private": true
 }

@@ -1,0 +1,32 @@
+{
+  "name": "@barchart/aws-lambda-pdf-generator-chrome-v83",
+  "version": "1.1.1",
+  "description": "Serverless application that coverts HTML to PDF",
+  "contributors": [
+    {
+      "name": "Bryan Ingle",
+      "email": "bryan.ingle@barchart.com"
+    },
+    {
+      "name": "Igor Losev",
+      "email": "igor.losev.it@gmail.com"
+    }
+  ],
+  "scripts": {
+    "lint": "jshint ./ --exclude './node_modules/**'"
+  },
+  "dependencies": {
+    "@barchart/aws-lambda-pdf-generator-common": "^1.1.1",
+    "@barchart/common-js": "^3.20.1",
+    "@barchart/common-node-js": "^3.20.1",
+    "@barchart/log4js-node-appenders": "^1.1.4",
+    "chrome-aws-lambda": "3.1.1",
+    "puppeteer-core": "3.1.0",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "puppeteer": "3.1.0"
+  },
+  "license": "MIT",
+  "private": true
+}

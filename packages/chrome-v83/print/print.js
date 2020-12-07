@@ -1,17 +1,28 @@
 const fs = require('fs');
 
+const chromium = require('chrome-aws-lambda');
+
 const FailureReason = require('@barchart/common-js/api/failures/FailureReason');
 
-const LambdaHelper = require('./../../../common/LambdaHelper'),
-	PrinterFailureTypes = require('./../../../common/PrinterFailureTypes');
+const LambdaResponseGeneratorGzip = require('@barchart/common-node-js/aws/lambda/responses/LambdaResponseGeneratorGzip'),
+	LambdaResponseGeneratorS3 = require('@barchart/common-node-js/aws/lambda/responses/LambdaResponseGeneratorS3');
+
+const PrinterFailureTypes = require('@barchart/aws-lambda-pdf-generator-common/api/PrinterFailureTypes');
+
+const LambdaHelper = require('./../common/LambdaHelper');
 
 module.exports = (() => {
 	'use strict';
 
 	return {
-		bind: (chromium) => (event, lambdaContext, callback) => {
+		handler: (event, lambdaContext, callback) => {
 			LambdaHelper.process('Print HTML page', event, callback, async (parser, responder) => {
 				const logger = LambdaHelper.getLogger();
+
+				responder.addResponseGenerators([
+					new LambdaResponseGeneratorGzip(parser),
+					new LambdaResponseGeneratorS3()
+				]);
 
 				const puppeteer = chromium.puppeteer;
 
@@ -82,7 +93,9 @@ module.exports = (() => {
 					fs.writeFile('./out.pdf', context.pdf);
 				}
 
-				return responder.sendBinary(context.pdf, 'application/pdf');
+				return responder
+					.setHeader('Content-Type', 'application/pdf')
+					.send(context.pdf);
 			});
 		}
 	};
