@@ -13,6 +13,9 @@ layers:
 
 custom:
   stage: ${opt:stage, 'stage'}
+  s3:
+    responseRegion: 'us-east-1'
+    responseBucket: 'barchart-aws-lambda-responses'
   cors:
     origin: '*'
     headers:
@@ -40,13 +43,15 @@ provider:
 
   environment:
     NODE_ENV: ${self:custom.stage}
+    S3_LARGE_HTTP_RESPONSE_REGION: ${self:custom.s3.responseRegion}
+    S3_LARGE_HTTP_RESPONSE_BUCKET: ${self:custom.s3.responseBucket}
 
   iamRoleStatements:
     - Effect: Allow
       Action:
         - s3:GetObject
         - s3:PutObject
-      Resource: arn:aws:s3:::barchart-aws-lambda-responses/*
+      Resource: arn:aws:s3:::${self:custom.s3.responseBucket}/*
 
   apiGateway:
     shouldStartNameWithService: true
