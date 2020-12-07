@@ -24,6 +24,11 @@ yarn deploy:stage
 
 Once deployed, the API Gateway will assign a hostname to your web service.
 
+## Lambda Layers
+
+Lambda layers are used to pull in `chrome-aws-lambda` package.`Makefile` is used to 
+make gzip archive with required dependencies. Read more [here](https://github.com/alixaxel/chrome-aws-lambda#aws-lambda-layer).
+
 ## Endpoints
 
 Your web service exposes endpoint:
