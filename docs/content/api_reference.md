@@ -26,5 +26,3 @@
 ## Paths {docsify-ignore}
 
 * [POST /print](/content/api/paths?id=post-print)
-* [POST /print/chrome/v81](/content/api/paths?id=post-printchromev81)
-* [POST /print/chrome/v83](/content/api/paths?id=post-printchromev83)
