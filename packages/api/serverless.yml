@@ -4,9 +4,11 @@ frameworkVersion: ">=2.13.0 <3.0.0"
 
 custom:
   stage: ${opt:stage, 'stage'}
+
   s3:
     responseRegion: 'us-east-1'
     responseBucket: 'barchart-aws-lambda-responses'
+
   cors:
     origin: '*'
     headers:
@@ -22,6 +24,7 @@ custom:
       - Access-Control-Allow-Headers
       - Access-Control-Allow-Methods
     allowCredentials: false
+
   apigwBinary:
     types:
       - '*/*'
