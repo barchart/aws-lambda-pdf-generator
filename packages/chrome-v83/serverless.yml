@@ -52,12 +52,12 @@ package:
 
 layers:
   HeadlessChromium:
-    name: serverless-headless-chrome-v83
+    name: serverless-headless-chromium-v83
     description: Layer for puppeteer to launch headless Chromium v83
     compatibleRuntimes:
       - nodejs12.x
     package:
-      artifact: layers/chrome-v83.zip
+      artifact: layers/chromium-v83.zip
 
 functions:
   printPdf:
