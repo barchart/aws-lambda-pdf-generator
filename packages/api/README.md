@@ -1,4 +1,4 @@
-# @barchart/aws-lambda-pdf-generator/packages/chrome-v83
+# @barchart/serverless-pdf-generator
 
 ### Serverless
 
