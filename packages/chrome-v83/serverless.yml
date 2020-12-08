@@ -51,9 +51,9 @@ package:
   individually: true
 
 layers:
-  HeadlessChrome:
+  HeadlessChromium:
     name: serverless-headless-chrome-v83
-    description: Layer for puppeteer to launch headless chrome v83
+    description: Layer for puppeteer to launch headless Chromium v83
     compatibleRuntimes:
       - nodejs12.x
     package:
@@ -62,11 +62,11 @@ layers:
 functions:
   printPdf:
     handler: print/print.handler
-    description: Generates a PDF from HTML (using Chrome v83)
+    description: Generates a PDF from HTML (using Chromium v83)
     memorySize: 1536
     timeout: 30
     layers:
-      - { Ref: HeadlessChromeLambdaLayer }
+      - { Ref: HeadlessChromiumLambdaLayer }
     events:
       - http:
           path: /print
