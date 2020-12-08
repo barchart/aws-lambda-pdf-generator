@@ -5,16 +5,16 @@
 ## Requirements
 
 * Create an [Amazon Web Services](https://aws.amazon.com/) account — sign up [here](https://portal.aws.amazon.com/billing/signup#/start).
-* Install the command line tools for AWS — here are the [instructions](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
+* Install the command line tools for your AWS account — here are the [instructions](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
 * Install [Node.js](https://nodejs.org/en/) — we recommend using the [Node Version Manager](https://github.com/nvm-sh/nvm).
-* Install the [Yarn](https://yarnpkg.com/) package management tool — here are the [instructions](https://www.serverless.com/framework/docs/providers/aws/guide/installation/).
+* Install the [Yarn](https://yarnpkg.com/) package management tool — here are the [instructions](https://classic.yarnpkg.com/en/docs/install).
 * Install the [Serverless](https://www.serverless.com/) framework — here are the [instructions](https://www.serverless.com/framework/docs/providers/aws/guide/installation/).
 
 ## Technical Overview
 
 * A web application is created using the [AWS API Gateway](https://aws.amazon.com/api-gateway/) service.
 * Any HTTP requests received by the web application are handled by an [AWS Lambda Function](https://aws.amazon.com/lambda/).
-* THe Lambda Function loads [Puppeteer](https://developers.google.com/web/tools/puppeteer) and [Chromium](https://www.chromium.org/) from an [AWS Lambda Layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+* The Lambda Function loads [Puppeteer](https://developers.google.com/web/tools/puppeteer) and [Chromium](https://www.chromium.org/) from an [AWS Lambda Layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 * The Lambda Function uses Puppeteer and Chromium to convert an HTML document into a PDF file.
 
 ## Deployment
