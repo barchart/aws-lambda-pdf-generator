@@ -22,7 +22,7 @@ module.exports = (() => {
 		}
 	}
 
-	const printFailedHtmlMissing = new FailureType('PRINT_FAILED_HTML_MISSING', 'Failed to print PDF, no HTML document provided.', false, 500);
+	const printFailedHtmlMissing = new FailureType('PRINT_FAILED_HTML_MISSING', 'Failed to print PDF, no HTML document provided.', false, 400);
 
 	return PrinterFailureTypes;
 })();
