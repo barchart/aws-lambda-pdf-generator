@@ -7,29 +7,15 @@
 
 ### Implementation
 
-The [Serverless](https://www.serverless.com/) framework is used to create a web service on the AWS cloud using [AWS API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/). Consumers ```POST``` an HTML document and the service renders a PDF document using [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://github.com/alixaxel/chrome-aws-lambda).
-
-### Packages
-
-* [chrome-v83](./packages/chrome-v83) - A REST API for chromium v83.
-* [common](./packages/common) - Common modules used by pdf-generator system.
-
-### Tools
-
-* [Yarn](https://classic.yarnpkg.com/en/) and [Lerna](https://lerna.js.org/) are used for dependency management.
-* [Serverless](https://serverless.com/) is used for testing and deployment.
-
-### Deployment
-
-```shell
-yarn install
-yarn run release
-yarn run deploy:[stage|prod]
-```
+The [Serverless](https://www.serverless.com/) framework creates a web service on the AWS cloud using [AWS API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/). Consumers ```POST``` an HTML document and the service renders and returns a PDF document using [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://github.com/alixaxel/chrome-aws-lambda).
 
 ### Documentation
 
 Complete documentation for installation and operation can be found [here](https://barchart.github.io/aws-lambda-pdf-generator/#/).
+
+### Packages
+
+* [api](./packages/api) - The REST API which accepts HTML documents and responds with PDF files.
 
 ### License
 
