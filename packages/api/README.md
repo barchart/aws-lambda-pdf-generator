@@ -2,7 +2,9 @@
 
 ### Serverless
 
-This project uses [Serverless](https://serverless.com/) for testing and deployment.
+This project uses the [Serverless](https://serverless.com/) framework for testing and deployment.
+
+#### Installation
 
 ```shell
 yarn global add serverless
@@ -14,9 +16,7 @@ yarn global add serverless
 yarn deploy:[stage|prod]
 ```
 
-### Local Testing
-
-#### Using Serverless
+#### Local Testing
 
 ```shell
 sls invoke local -f print --path print/test/print.json
