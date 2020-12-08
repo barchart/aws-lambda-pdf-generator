@@ -12,7 +12,8 @@
     "lint": "lerna run lint --stream",
     "preversion": "git diff --exit-code",
     "release": "lerna version -m 'Release. Bump version number %v' --tag-version-prefix='' --force-publish",
-    "deploy:stage": "lerna run deploy:stage --stream"
+    "deploy:stage": "lerna run deploy:stage --stream",
+    "deploy:prod": "lerna run deploy:prod --stream"
   },
   "devDependencies": {
     "jshint": "^2.10.3",
