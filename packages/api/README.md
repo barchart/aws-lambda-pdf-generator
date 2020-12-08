@@ -12,8 +12,12 @@ yarn global add serverless
 
 #### Deployment
 
+Deploy the service from from the project's root directory.
+
 ```shell
-yarn deploy:[stage|prod]
+cd ./../..
+yarn install
+yarn run deploy:[stage|prod]
 ```
 
 #### Local Testing
@@ -22,4 +26,3 @@ yarn deploy:[stage|prod]
 sls invoke local -f print --path print/test/print.json
 sls invoke local -f print --path print/test/print.5MB.json
 ```
-
