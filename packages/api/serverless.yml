@@ -60,7 +60,7 @@ layers:
       artifact: layers/chromium-v83.zip
 
 functions:
-  printPdf:
+  print:
     handler: print/print.handler
     description: Generates a PDF from HTML (using Chromium v83)
     memorySize: 1536
