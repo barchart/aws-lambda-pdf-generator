@@ -16,10 +16,6 @@ _Simply ```POST``` an HTML document to a web service and receive an ```applicati
 
 Complete documentation for installation and operation can be found [here](https://barchart.github.io/aws-lambda-pdf-generator/#/).
 
-### Packages
-
-* [api](./packages/api) - The REST API which accepts HTML documents and responds with PDF files.
-
 ### License
 
 This software is provided under the MIT license.
