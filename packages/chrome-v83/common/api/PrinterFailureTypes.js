@@ -13,8 +13,8 @@ module.exports = (() => {
 
 		}
 
-		static get PRINT_FAILED_NO_HTML_LAYOUT() {
-			return printFailedNoHtmlLayout;
+		static get PRINT_FAILED_HTML_MISSING() {
+			return printFailedHtmlMissing;
 		}
 
 		toString() {
@@ -22,7 +22,7 @@ module.exports = (() => {
 		}
 	}
 
-	const printFailedNoHtmlLayout = new FailureType('PRINT_FAILED_NO_HTML_LAYOUT', 'Failed to print PDF, missing html layout.', true, 400);
+	const printFailedHtmlMissing = new FailureType('PRINT_FAILED_HTML_MISSING', 'Failed to print PDF, no HTML document provided.', false, 500);
 
 	return PrinterFailureTypes;
 })();

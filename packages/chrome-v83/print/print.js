@@ -2,14 +2,13 @@ const fs = require('fs');
 
 const chromium = require('chrome-aws-lambda');
 
-const FailureReason = require('@barchart/common-js/api/failures/FailureReason');
+const FailureReason = require('@barchart/common-js/api/failures/FailureReason'),
+	PrinterFailureTypes = require('./../common/api/PrinterFailureTypes');
 
 const LambdaResponseGeneratorGzip = require('@barchart/common-node-js/aws/lambda/responses/LambdaResponseGeneratorGzip'),
 	LambdaResponseGeneratorS3 = require('@barchart/common-node-js/aws/lambda/responses/LambdaResponseGeneratorS3');
 
-const PrinterFailureTypes = require('@barchart/aws-lambda-pdf-generator-common/api/PrinterFailureTypes');
-
-const LambdaHelper = require('./../common/LambdaHelper');
+const LambdaHelper = require('./../common/aws/LambdaHelper');
 
 module.exports = (() => {
 	'use strict';
@@ -33,7 +32,7 @@ module.exports = (() => {
 				const settings = body.settings || null;
 
 				if (html === null) {
-					throw new FailureReason().addItem(PrinterFailureTypes.PRINT_FAILED_NO_HTML_LAYOUT);
+					return Promise.reject(FailureReason.from(PrinterFailureTypes.PRINT_FAILED_HTML_MISSING));
 				}
 
 				const context = { };
