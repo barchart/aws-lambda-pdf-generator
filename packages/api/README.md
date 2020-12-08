@@ -19,7 +19,7 @@ yarn deploy:[stage|prod]
 #### Using Serverless
 
 ```shell
-sls invoke local -f printPdf --path print/test/print.json
-sls invoke local -f printPdf --path print/test/print.5MB.json
+sls invoke local -f print --path print/test/print.json
+sls invoke local -f print --path print/test/print.5MB.json
 ```
 
