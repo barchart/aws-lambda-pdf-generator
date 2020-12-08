@@ -5,12 +5,12 @@
 
 **Generate PDF files from HTML documents.**
 
-Simply ```POST``` your HTML document to a web service and receive an ```application/pdf``` document in response.
+_Simply ```POST``` an HTML document to a web service and receive an ```application/pdf``` document in response._
 
 ### Implementation
 
 * The [Serverless](https://www.serverless.com/) framework creates a web service on the AWS cloud using [AWS API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/).
-* The service uses [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://github.com/alixaxel/chrome-aws-lambda) to render an HTML document as a PDF file.
+* The web service uses [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://github.com/alixaxel/chrome-aws-lambda) to render an HTML document as a PDF file.
 
 ### Documentation
 
