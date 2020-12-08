@@ -1,4 +1,4 @@
-service: serverless-headless-chrome-v83
+service: serverless-pdf-generator
 
 frameworkVersion: ">=2.13.0 <3.0.0"
 
