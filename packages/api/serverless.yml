@@ -55,7 +55,7 @@ package:
 
 layers:
   HeadlessChromium:
-    name: serverless-headless-chromium-v88
+    name: serverless-headless-chromium-${self:custom.stage}-v88
     description: Layer for puppeteer to launch headless Chromium v88
     compatibleRuntimes:
       - nodejs12.x
