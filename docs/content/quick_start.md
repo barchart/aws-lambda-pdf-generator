@@ -31,7 +31,7 @@ Then, execute the deployment, as follows:
 yarn deploy:prod
 ```
 
-First, the deployment process will execute a `make` command, building the Lambda Layer package. Then, it will configure AWS services (e.g. API Gateway, Lambda, etc). Obviously, your AWS account must have the sufficient access.
+First, the deployment process will execute a `make` command, building the Lambda Layer package (which houses Puppeteer and Chromium). Then, it will configure AWS services (e.g. API Gateway, Lambda, etc). Obviously, your AWS account must have the sufficient access to perform these operations.
 
 ## Endpoints
 
