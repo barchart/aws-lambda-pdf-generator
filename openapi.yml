@@ -67,8 +67,8 @@ tags:
 paths:
   /print:
     post:
-      summary: Prints PDF page from html layout (chrome v83 by default).
-      description: Prints PDF page from html layout (chrome v83 by default).
+      summary: Prints PDF page from html layout (chrome v88 by default).
+      description: Prints PDF page from html layout (chrome v88 by default).
       tags:
         - Pdf
       requestBody:

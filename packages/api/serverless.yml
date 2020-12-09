@@ -55,17 +55,17 @@ package:
 
 layers:
   HeadlessChromium:
-    name: serverless-headless-chromium-v83
-    description: Layer for puppeteer to launch headless Chromium v83
+    name: serverless-headless-chromium-v88
+    description: Layer for puppeteer to launch headless Chromium v88
     compatibleRuntimes:
       - nodejs12.x
     package:
-      artifact: layers/chromium-v83.zip
+      artifact: layers/chromium-v88.zip
 
 functions:
   print:
     handler: print/print.handler
-    description: Generates a PDF from HTML (using Chromium v83)
+    description: Generates a PDF from HTML (using Chromium v88)
     memorySize: 1536
     timeout: 30
     layers:
