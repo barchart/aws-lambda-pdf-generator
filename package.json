@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "jshint": "^2.10.3",
+    "lerna": "^3.22.1",
     "serverless-apigw-binary": "^0.4.4",
     "serverless-webpack": "5.3.5",
     "webpack": "^5.9.0"
