@@ -15,6 +15,8 @@
 * Converted project to use [Lerna](https://github.com/lerna/lerna) approach.
 * Upgraded [Serverless](https://www.serverless.com/) framework to version 2.13.0 (or better).
 * Added descriptions for application and functions to `serverless.yml` file.
+* Updated Chromium version from `v83` to `v88`.
+
 
 ## 1.1.1
 **No Functional Changes**
