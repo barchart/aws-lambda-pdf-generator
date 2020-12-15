@@ -12,7 +12,7 @@ yarn global add serverless
 
 #### Deployment
 
-Deploy the service from from the project's root directory.
+Deploy the service from the project's root directory.
 
 ```shell
 cd ./../..
