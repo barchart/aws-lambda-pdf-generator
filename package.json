@@ -19,8 +19,8 @@
     "jshint": "^2.10.3",
     "lerna": "^3.22.1",
     "serverless-apigw-binary": "^0.4.4",
-    "serverless-webpack": "5.3.5",
-    "webpack": "^5.9.0"
+    "serverless-webpack": "^5.5.0",
+    "webpack": "^5.11.1"
   },
   "license": "MIT",
   "private": true

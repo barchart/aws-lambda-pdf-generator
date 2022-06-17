@@ -1,6 +1,6 @@
 service: serverless-pdf-generator
 
-frameworkVersion: ">=2.13.0 <3.0.0"
+frameworkVersion: ">=3.8.0 <4.0.0"
 
 custom:
   stage: ${opt:stage, 'stage'}
