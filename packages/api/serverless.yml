@@ -40,12 +40,14 @@ provider:
     S3_LARGE_HTTP_RESPONSE_REGION: ${self:custom.s3.responseRegion}
     S3_LARGE_HTTP_RESPONSE_BUCKET: ${self:custom.s3.responseBucket}
 
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - s3:GetObject
-        - s3:PutObject
-      Resource: arn:aws:s3:::${self:custom.s3.responseBucket}/*
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+            - s3:PutObject
+          Resource: arn:aws:s3:::${self:custom.s3.responseBucket}/*
 
   apiGateway:
     shouldStartNameWithService: true
