@@ -1,6 +1,6 @@
 {
   "name": "@barchart/serverless-pdf-generator",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Web service for conversion of HTML to PDF",
   "contributors": [
     {
@@ -29,9 +29,9 @@
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
-    "puppeteer": "10.1.0",
     "gulp": "^4.0.2",
-    "gulp-replace": "^0.5.4"
+    "gulp-replace": "^0.5.4",
+    "puppeteer": "10.1.0"
   },
   "license": "MIT",
   "private": true
