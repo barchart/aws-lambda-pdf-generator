@@ -13,3 +13,5 @@ phases:
   build:
     commands:
       - yarn lint
+      - cd packages/api
+      - make all
