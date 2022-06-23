@@ -31,7 +31,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   logRetentionInDays: 90
   deploymentBucket: barchart-serverless-deployments
 
@@ -57,17 +57,17 @@ package:
 
 layers:
   HeadlessChromium:
-    name: serverless-headless-chromium-${self:custom.stage}-v88
-    description: Layer for puppeteer to launch headless Chromium v88
+    name: serverless-headless-chromium-${self:custom.stage}-v92
+    description: Layer for puppeteer to launch headless Chromium v92
     compatibleRuntimes:
-      - nodejs12.x
+      - nodejs14.x
     package:
-      artifact: layers/chromium-v88.zip
+      artifact: layers/chromium-v92.zip
 
 functions:
   print:
     handler: print/print.handler
-    description: Generates a PDF from HTML (using Chromium v88)
+    description: Generates a PDF from HTML (using Chromium v92)
     memorySize: 1536
     timeout: 30
     layers:
@@ -76,6 +76,15 @@ functions:
       - http:
           path: /print
           method: POST
+          cors: ${self:custom.cors}
+
+  serviceRead:
+    handler: service/version.handler
+    description: Reads service metadata
+    events:
+      - http:
+          method: GET
+          path: service/version
           cors: ${self:custom.cors}
 
 resources:

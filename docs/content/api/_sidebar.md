@@ -4,4 +4,7 @@
 	* [Components](/content/api/components)
 	* [Paths](/content/api/paths)
 <!-- api_close -->
+<!-- sdk_open -->
+* [SDK Reference](/content/sdk_reference)
+<!-- sdk_close -->
 * [Release Notes](/content/release_notes)

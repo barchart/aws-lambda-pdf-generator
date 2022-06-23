@@ -1,7 +1,7 @@
 {
   "name": "@barchart/serverless-pdf-generator",
   "version": "2.0.0",
-  "description": "Serverless application that coverts HTML to PDF",
+  "description": "Web service for conversion of HTML to PDF",
   "contributors": [
     {
       "name": "Bryan Ingle",
@@ -14,8 +14,8 @@
   ],
   "scripts": {
     "lint": "jshint ./ --exclude './node_modules/**'",
-    "predeploy:stage": "make",
-    "predeploy:prod": "make",
+    "predeploy:stage": "make clean && make all",
+    "predeploy:prod": "make clean && make all",
     "deploy:stage": "serverless deploy --stage stage",
     "deploy:prod": "serverless deploy --stage prod",
     "version": "gulp embed-version"
@@ -24,14 +24,14 @@
     "@barchart/common-js": "^4.21.0",
     "@barchart/common-node-js": "^4.21.0",
     "@barchart/log4js-node-appenders": "^1.1.5",
-    "chrome-aws-lambda": "5.5.0",
-    "gulp": "^4.0.2",
-    "gulp-replace": "^0.5.4",
-    "puppeteer-core": "5.5.0",
+    "chrome-aws-lambda": "10.1.0",
+    "puppeteer-core": "10.1.0",
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
-    "puppeteer": "3.1.0"
+    "puppeteer": "10.1.0",
+    "gulp": "^4.0.2",
+    "gulp-replace": "^0.5.4"
   },
   "license": "MIT",
   "private": true

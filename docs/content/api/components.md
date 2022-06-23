@@ -1,6 +1,6 @@
 # Components
 
-## Responses 
+## Responses
 
 ### Success :id=responsessuccess
 > Generated PDF file.
@@ -17,7 +17,7 @@
 
 | Name | Type | Required | Nullable | Description |
 | ---- | ---- | -------- | -------- | ----------- |
-| value | <code>Object</code> |  | false |  |
+| value | <code>Object</code> | false | false |  |
 | value.code | <code>String</code> | false | false |  |
 | value.message | <code>String</code> | false | false |  |
 | children | <code>Array</code> | false | false |  |
@@ -47,7 +47,7 @@
 
 | Name | Type | Required | Nullable | Description |
 | ---- | ---- | -------- | -------- | ----------- |
-| value | <code>Object</code> |  | false |  |
+| value | <code>Object</code> | false | false |  |
 | value.code | <code>String</code> | false | false |  |
 | value.message | <code>String</code> | false | false |  |
 | children | <code>Array</code> | false | false |  |
@@ -67,4 +67,5 @@
 ```
 
 * * *
+
 

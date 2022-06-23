@@ -65,10 +65,10 @@ sls invoke local -f print --path print/test/print.json
 sls invoke local -f print --path print/test/print.5MB.json
 ```
 
-After deployment, you can test the web service by issuing a ```POST``` request to the actual web service. Here is an example cURL command (obviously, you'll need to correct the hostname).
+After deployment, you can test the web service by issuing a ```POST``` request to the actual web service. Here is an example cURL command (obviously, you'll need to correct the hostname and stage name).
 
 ```shell
-curl 'https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/test/print' \
+curl 'https://{api-identifier}.execute-api.us-east-1.amazonaws.com/{stage|prod}/print' \
   -X 'POST' \
   --output testing.pdf \
   --data-binary '{"source":"testing","html":"<html><body><h1>Hello World</h1><div>You have converted an HTML document into a PDF file.</div></body></html>"}'

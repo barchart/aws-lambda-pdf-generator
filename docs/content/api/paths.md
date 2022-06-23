@@ -2,12 +2,12 @@
 
 ## POST /print 
 
-> Prints PDF page from html layout (chrome v88 by default).
+> Prints PDF page from html layout (chrome v92 by default).
 
-**Summary**: Prints PDF page from html layout (chrome v88 by default).
+**Summary**: Prints PDF page from html layout (chrome v92 by default).
 
 #### Request Body
-    
+
 **Content Type**: application/json
 
 **Type**: <code>Object</code>

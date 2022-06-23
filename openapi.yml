@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.0.1
 
 info:
   title: PDF generator API
   description: PDF generator API
-  version: 1.0.0
+  version: 2.1.0
 
 components:
   responses:
@@ -67,8 +67,8 @@ tags:
 paths:
   /print:
     post:
-      summary: Prints PDF page from html layout (chrome v88 by default).
-      description: Prints PDF page from html layout (chrome v88 by default).
+      summary: Prints PDF page from html layout (chrome v92 by default).
+      description: Prints PDF page from html layout (chrome v92 by default).
       tags:
         - Pdf
       requestBody:

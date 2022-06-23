@@ -1,6 +1,6 @@
 # API Reference
 
-## PDF generator API 1.0.0 {docsify-ignore}
+## PDF generator API 2.1.0 {docsify-ignore}
     
 > PDF generator API
 
@@ -14,7 +14,6 @@
 * [Paths](#Paths)
 
 
-
 ## Components {docsify-ignore}
 
 ### Responses 
@@ -22,6 +21,7 @@
 * [Success](/content/api/components?id=responsesSuccess)
 * [BadRequest](/content/api/components?id=responsesBadRequest)
 * [ServerError](/content/api/components?id=responsesServerError)
+
 
 ## Paths {docsify-ignore}
 
