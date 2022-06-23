@@ -1,5 +1,11 @@
 # Release Notes
 
+## 2.1.1
+**Other**
+
+* Minor corrections to [documentation website](https://barchart.github.io/aws-lambda-pdf-generator/#/content/sdk_reference).
+* Regenerated `yarn.lock` file.
+
 ## 2.1.0
 **New Features**
 
