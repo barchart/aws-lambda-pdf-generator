@@ -2,21 +2,19 @@
 
 ### Technical Notes
 
-#### 2022/06/22, BRI. Version 2.1.0
-
-**Node.js Runtime**
+**Node.js Runtime (2022/06/22, v2.1.0)**
 
 > The Node.js runtime for AWS Lambda was updated to version 14. Ideally, we'd use Node.js version 16. However, the [`chrome-aws-lambda`](https://github.com/alixaxel/chrome-aws-lambda) library does not yet support Node.js version 16. A [pull request](https://github.com/alixaxel/chrome-aws-lambda/pull/274) does exist, however, the project's maintainers have not yet merged it.
 
-**Puppeteer Version**
+**Puppeteer Version (2022/06/22, v2.1.0)**
 
 > Also, the [`puppeteer`](https://github.com/puppeteer/puppeteer), [`puppeteer-core`](https://github.com/puppeteer/puppeteer), and [`chrome-aws-lambda`](https://github.com/alixaxel/chrome-aws-lambda) libraries were updated version 10.1.0. Puppeteer is currently on version 14; however, [`chrome-aws-lambda`](https://github.com/alixaxel/chrome-aws-lambda) does not support versions of puppeteer beyond 10.1.0.
 
-**Bug**
+**Bug (2022/06/22, v2.1.0)**
 
 > Additionally, there is a bug in the latest version 10.1.0 of [`chrome-aws-lambda`](https://github.com/alixaxel/chrome-aws-lambda). The `make all` command fails because of an incompatibility with TypeScript. This has been documented with an [issue](https://github.com/alixaxel/chrome-aws-lambda/issues/236) and a [pull request](https://github.com/alixaxel/chrome-aws-lambda/pull/237). However, the repository has not been tagged and released (more than a year later). For now, this issue is addressed by the addition of a `sed` command in the local [`Makefile`](https://github.com/barchart/aws-lambda-pdf-generator/blob/master/packages/api/Makefile) that overrides the TypeScript version. One this issue has been resolved, the Makefile hack can be removed.
 
-**ARM Architecture**
+**ARM Architecture (2022/06/22, v2.1.0)**
 
 > Finally, it would be nice to use ARM architecture for AWS Lambda functions. The [`chrome-aws-lambda`](https://github.com/alixaxel/chrome-aws-lambda) project has not yet added support, although an [issue](https://github.com/alixaxel/chrome-aws-lambda/issues/275) and a [pull request](https://github.com/alixaxel/chrome-aws-lambda/pull/274) have been created.
 
