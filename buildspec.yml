@@ -3,11 +3,11 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14.x
+      nodejs: 16.x
 
   pre_build:
     commands:
-      - npm install -g yarn
+      - npm install yarn --location=global
       - yarn install
 
   build:
