@@ -1,6 +1,6 @@
 {
   "name": "@barchart/serverless-pdf-generator",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "Web service for conversion of HTML to PDF",
   "contributors": [
     {
