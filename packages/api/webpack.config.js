@@ -16,5 +16,5 @@ module.exports = {
 			return data;
 		})
 	],
-	externals: [ 'chrome-aws-lambda' ]
+	externals: [ '@sparticuz/chromium' ]
 };

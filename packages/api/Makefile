@@ -2,23 +2,22 @@
 
 .DEFAULT_GOAL := all
 
-CHROME_REPO=https://github.com/alixaxel/chrome-aws-lambda.git
+CHROME_REPO=https://github.com/Sparticuz/chromium.git
 LAYERS_FOLDER=layers
 
-all: ${LAYERS_FOLDER}/chromium-v92.zip
+all: ${LAYERS_FOLDER}/chromium-v116.zip
 
-${LAYERS_FOLDER}/chromium-v92.zip:
+${LAYERS_FOLDER}/chromium-v116.zip:
 	@echo 'Downloading...' \
-	&& git clone $(CHROME_REPO) --depth 1 --branch v10.1.0 \
+	&& git clone $(CHROME_REPO) chromium-aws-lambda --depth 1 --branch v116.0.0 \
 	&& echo 'Making .zip archive...' \
-	&& cd chrome-aws-lambda \
+	&& cd chromium-aws-lambda \
 	&& rm -rf node_modules \
-	&& sed -i 's/\^4.3.2/4.3.2/g' package.json \
     && npm i \
-	&& make chrome_aws_lambda.zip && mkdir -p ./../layers && mv chrome_aws_lambda.zip ./../${LAYERS_FOLDER}/chromium-v92.zip \
+	&& make chromium-aws-lambda.zip && mkdir -p ./../layers && mv chromium-aws-lambda.zip ./../${LAYERS_FOLDER}/chromium-v116.zip \
 	&& echo 'Removing unnecessary stuff...' \
-	&& cd ../ && rm -rf chrome-aws-lambda \
+	&& cd ../ && rm -rf chromium-aws-lambda \
 	&& echo 'Done'
 
 clean:
-	rm -rf layers && rm -rf chrome-aws-lambda
+	rm -rf layers && rm -rf chromium-aws-lambda

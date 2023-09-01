@@ -1,6 +1,7 @@
 const fs = require('fs');
 
-const chromium = require('chrome-aws-lambda');
+const chromium = require('@sparticuz/chromium'),
+	puppeteer = require('puppeteer-core');
 
 const FailureReason = require('@barchart/common-js/api/failures/FailureReason'),
 	PrinterFailureTypes = require('./../common/api/PrinterFailureTypes');
@@ -23,8 +24,6 @@ module.exports = (() => {
 					new LambdaResponseGeneratorS3()
 				]);
 
-				const puppeteer = chromium.puppeteer;
-
 				const body = JSON.parse(Buffer.from(parser.getBody(), 'base64').toString());
 
 				const source = body.source || null;
@@ -43,9 +42,12 @@ module.exports = (() => {
 				try {
 					logger.debug(`Launching headless chrome for [ ${source} ]`);
 
+					chromium.setGraphicsMode = false;
+
 					context.browser = await puppeteer.launch({
 						args: chromium.args,
-						executablePath: await chromium.executablePath,
+						executablePath: await chromium.executablePath(),
+						headless: chromium.headless,
 						ignoreHTTPSErrors: true
 					});
 

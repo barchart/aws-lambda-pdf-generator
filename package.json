@@ -16,8 +16,8 @@
     "deploy:prod": "lerna run deploy:prod --stream"
   },
   "devDependencies": {
-    "jshint": "^2.10.3",
-    "lerna": "^3.22.1",
+    "jshint": "^2.13.6",
+    "lerna": "^6.6.2",
     "serverless-apigw-binary": "^0.4.4",
     "serverless-webpack": "^5.5.0",
     "webpack": "^5.11.1"

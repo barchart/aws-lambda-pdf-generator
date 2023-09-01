@@ -9,12 +9,18 @@ _Simply ```POST``` an HTML document to a web service and receive an ```applicati
 
 ### Implementation
 
-* The [Serverless](https://www.serverless.com/) framework creates a web service on the AWS cloud using [AWS API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/).
-* The web service uses [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://github.com/alixaxel/chrome-aws-lambda) to render an HTML document as a PDF file.
+* The [Serverless](https://www.serverless.com/) framework creates a web service using [AWS API Gateway](https://aws.amazon.com/api-gateway/) and [AWS Lambda](https://aws.amazon.com/lambda/).
+* The web service uses [Puppeteer](https://github.com/puppeteer/puppeteer) and [Chromium](https://www.chromium.org/) to render an HTML document as a PDF file.
 
 ### Documentation
 
 Complete documentation for installation and operation can be found [here](https://barchart.github.io/aws-lambda-pdf-generator/#/).
+
+### Technical Notes
+
+**ARM Architecture (2023/08/31, v3.0.0)**
+
+> It would be nice to use ARM architecture for AWS Lambda functions (and use Apple silicon locally). However, the [`@sparticuz/chromium`](https://github.com/Sparticuz/chromium) project has not yet added support. See the comments [here](https://github.com/Sparticuz/chromium#running-locally--headlessheadful-mode).
 
 ### License
 
