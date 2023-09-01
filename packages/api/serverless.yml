@@ -68,7 +68,7 @@ functions:
   print:
     handler: print/print.handler
     description: Generates a PDF from HTML (using Chromium v116)
-    memorySize: 1536
+    memorySize: 2048
     timeout: 30
     layers:
       - { Ref: HeadlessChromiumLambdaLayer }
