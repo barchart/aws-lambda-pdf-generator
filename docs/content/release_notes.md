@@ -1,9 +1,26 @@
 # Release Notes
 
+## 3.0.0
+**Major Changes**
+
+* Updated [Chromium](https://www.chromium.org/) to version 116 (from version 92).
+* Updated [Puppeteer](https://pptr.dev/) to version 21 (from version 10).
+
+**Bug Fixes**
+
+* Corrected inability to run on Node.js versions 16 and 18 by swapping [`aws-chrome-lambda`](https://github.com/alixaxel/chrome-aws-lambda) for [`@sparticuz/chromium`](https://github.com/Sparticuz/chromium).
+
+**Technical Enhancements**
+
+* Updated Node.js runtime to `nodejs18.x` for all Lambda functions (and layers).
+* Updated the minimum required version of [`serverless`](https://www.serverless.com/).
+* Updated [Lerna](https://lerna.js.org/) by three major versions.
+* Updated other dependencies explicitly and implicitly.
+
 ## 2.1.1
 **Other**
 
-* Minor corrections to [documentation website](https://barchart.github.io/aws-lambda-pdf-generator/#/content/sdk_reference).
+* Minor corrections to [documentation website](https://barchart.github.io/aws-lambda-pdf-generator/#).
 * Regenerated `yarn.lock` file.
 
 ## 2.1.0
