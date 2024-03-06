@@ -1,6 +1,6 @@
 service: serverless-pdf-generator
 
-frameworkVersion: ">=3.27.0 <4.0.0"
+frameworkVersion: ">=3.38.0 <4.0.0"
 
 custom:
   stage: ${opt:stage, 'stage'}
@@ -31,7 +31,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs20.x
   logRetentionInDays: 90
   deploymentBucket: barchart-serverless-deployments
 
@@ -57,17 +57,17 @@ package:
 
 layers:
   HeadlessChromium:
-    name: serverless-headless-chromium-${self:custom.stage}-v116
-    description: Layer for puppeteer to launch headless Chromium v116
+    name: serverless-headless-chromium-${self:custom.stage}-v122
+    description: Layer for puppeteer to launch headless Chromium v122
     compatibleRuntimes:
-      - nodejs18.x
+      - nodejs20.x
     package:
-      artifact: layers/chromium-v116.zip
+      artifact: layers/chromium-v122.zip
 
 functions:
   print:
     handler: print/print.handler
-    description: Generates a PDF from HTML (using Chromium v116)
+    description: Generates a PDF from HTML (using Chromium v122)
     memorySize: 2048
     timeout: 30
     layers:

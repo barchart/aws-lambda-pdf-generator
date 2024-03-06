@@ -24,8 +24,8 @@
     "@barchart/common-js": "^4.21.0",
     "@barchart/common-node-js": "^4.21.0",
     "@barchart/log4js-node-appenders": "^1.1.5",
-    "@sparticuz/chromium": "116.0.0",
-    "puppeteer-core": "21.1.1",
+    "@sparticuz/chromium": "122.0.0",
+    "puppeteer-core": "22.4.0",
     "source-map-support": "^0.5.21"
   },
   "devDependencies": {
