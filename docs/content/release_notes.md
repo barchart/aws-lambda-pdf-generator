@@ -1,5 +1,19 @@
 # Release Notes
 
+## 3.0.1
+**Major Changes**
+
+* Updated [Chromium](https://www.chromium.org/) to version 122 (from version 116).
+* Updated [Puppeteer](https://pptr.dev/) to version 22 (from version 21).
+
+
+**Technical Enhancements**
+
+* Updated AWS CodeBuild integration to use Node.js version 20.
+* Updated Node.js runtime to `nodejs20.x` for all Lambda functions (and layers).
+* Updated the minimum required version of [`serverless`](https://www.serverless.com/).
+* Updated dependencies implicitly.
+
 ## 3.0.0
 **Major Changes**
 
