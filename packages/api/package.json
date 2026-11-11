@@ -29,8 +29,7 @@
   },
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-replace": "^0.5.4",
-    "puppeteer": "21.1.1"
+    "gulp-replace": "^0.5.4"
   },
   "license": "MIT",
   "private": true
