@@ -3,7 +3,16 @@ service: serverless-pdf-generator
 frameworkVersion: "4"
 
 build:
-  esbuild: false
+  esbuild:
+    bundle: true
+    minify: true
+    sourcemap:
+      type: linked
+      setNodeOptions: false
+    exclude:
+      - '@sparticuz/chromium'
+      - bufferutil
+      - utf-8-validate
 
 custom:
   stage: ${opt:stage, 'stage'}
@@ -90,6 +99,3 @@ functions:
 
 resources:
   Description: API for generating PDF from HTML
-
-plugins:
-  - serverless-webpack

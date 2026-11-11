@@ -18,9 +18,7 @@
   "devDependencies": {
     "jshint": "^2.13.6",
     "lerna": "^10.1.2",
-    "serverless": "^4.46.0",
-    "serverless-webpack": "^5.16.2",
-    "webpack": "^5.11.1"
+    "serverless": "^4.46.0"
   },
   "license": "MIT",
   "private": true
