@@ -1,5 +1,3 @@
-require('source-map-support').install();
-
 const LambdaHelper = require('@barchart/common-node-js/aws/lambda/LambdaHelper');
 
 const logConfiguration = require('./../../log4js.config');

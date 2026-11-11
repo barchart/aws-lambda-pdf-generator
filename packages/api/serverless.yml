@@ -8,7 +8,7 @@ build:
     minify: true
     sourcemap:
       type: linked
-      setNodeOptions: false
+      setNodeOptions: true
     external:
       - '@sparticuz/chromium'
     exclude:
