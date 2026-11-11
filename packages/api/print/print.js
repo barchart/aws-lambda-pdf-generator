@@ -11,93 +11,93 @@ const LambdaResponseGeneratorGzip = require('@barchart/common-node-js/aws/lambda
 
 const LambdaHelper = require('./../common/aws/LambdaHelper');
 
-module.exports = (() => {
+module.exports.handler = (() => {
 	'use strict';
 
-	return {
-		handler: (event, lambdaContext, callback) => {
-			LambdaHelper.process('Print HTML page', event, callback, async (parser, responder) => {
-				const logger = LambdaHelper.getLogger();
+	const handler = (event, lambdaContext, callback) => {
+		LambdaHelper.process('Print HTML page', event, callback, async (parser, responder) => {
+			const logger = LambdaHelper.getLogger();
 
-				responder.addResponseGenerators([
-					new LambdaResponseGeneratorGzip(parser),
-					new LambdaResponseGeneratorS3()
-				]);
+			responder.addResponseGenerators([
+				new LambdaResponseGeneratorGzip(parser),
+				new LambdaResponseGeneratorS3()
+			]);
 
-				const body = JSON.parse(Buffer.from(parser.getBody(), 'base64').toString());
+			const body = JSON.parse(Buffer.from(parser.getBody(), 'base64').toString());
 
-				const source = body.source || null;
-				const html = body.html || null;
-				const settings = body.settings || null;
+			const source = body.source || null;
+			const html = body.html || null;
+			const settings = body.settings || null;
 
-				if (html === null) {
-					return Promise.reject(FailureReason.from(PrinterFailureTypes.PRINT_FAILED_HTML_MISSING));
-				}
+			if (html === null) {
+				return Promise.reject(FailureReason.from(PrinterFailureTypes.PRINT_FAILED_HTML_MISSING));
+			}
 
-				const context = { };
+			const context = { };
 
-				context.browser = null;
-				context.version = null;
+			context.browser = null;
+			context.version = null;
 
-				try {
-					logger.debug(`Launching headless chrome for [ ${source} ]`);
+			try {
+				logger.debug(`Launching headless chrome for [ ${source} ]`);
 
-					chromium.setGraphicsMode = false;
+				chromium.setGraphicsMode = false;
 
-					context.browser = await puppeteer.launch({
-						args: chromium.args,
-						executablePath: await chromium.executablePath(),
-						headless: chromium.headless,
-						ignoreHTTPSErrors: true
-					});
+				context.browser = await puppeteer.launch({
+					args: chromium.args,
+					executablePath: await chromium.executablePath(),
+					headless: chromium.headless,
+					ignoreHTTPSErrors: true
+				});
 
-					context.version = await context.browser.version();
+				context.version = await context.browser.version();
 
-					logger.info(`Launched headless chrome [ ${context.version} ] for [ ${source} ]`);
+				logger.info(`Launched headless chrome [ ${context.version} ] for [ ${source} ]`);
 
-					const page = await context.browser.newPage();
+				const page = await context.browser.newPage();
 
-					page.on('console', (message) => {
-						for (let i = 0; i < message.args().length; ++i) {
-							logger.info(`[ ${i} ] Console: ${message.args()[i]}`);
-						}
-					});
-
-					page.on('pageerror', (error) => {
-						logger.error(error);
-					});
-
-					logger.debug(`Printing HTML layout for [ ${source} ] [ ${html.length} ] as PDF`);
-
-					await page.setContent(html, { waitUntil: 'networkidle0' });
-
-					context.pdf = await page.pdf(settings || { });
-
-					logger.info(`Printed HTML layout for [ ${source} ] [ ${html.length} ] as PDF`);
-
-					await page.close();
-				} catch (e) {
-					logger.error(e);
-
-					throw e;
-				} finally {
-					if (context.browser !== null) {
-						logger.debug(`Closing headless chrome [ ${context.version} ] for [ ${source} ]`);
-
-						await context.browser.close();
-
-						logger.info(`Closed headless chrome [ ${context.version} ] for [ ${source} ]`);
+				page.on('console', (message) => {
+					for (let i = 0; i < message.args().length; ++i) {
+						logger.info(`[ ${i} ] Console: ${message.args()[i]}`);
 					}
-				}
+				});
 
-				if (false) {
-					fs.writeFile('./out.pdf', context.pdf);
-				}
+				page.on('pageerror', (error) => {
+					logger.error(error);
+				});
 
-				return responder
-					.setHeader('Content-Type', 'application/pdf')
-					.send(context.pdf);
-			});
-		}
+				logger.debug(`Printing HTML layout for [ ${source} ] [ ${html.length} ] as PDF`);
+
+				await page.setContent(html, { waitUntil: 'networkidle0' });
+
+				context.pdf = await page.pdf(settings || { });
+
+				logger.info(`Printed HTML layout for [ ${source} ] [ ${html.length} ] as PDF`);
+
+				await page.close();
+			} catch (e) {
+				logger.error(e);
+
+				throw e;
+			} finally {
+				if (context.browser !== null) {
+					logger.debug(`Closing headless chrome [ ${context.version} ] for [ ${source} ]`);
+
+					await context.browser.close();
+
+					logger.info(`Closed headless chrome [ ${context.version} ] for [ ${source} ]`);
+				}
+			}
+
+			if (false) {
+				fs.writeFile('./out.pdf', context.pdf);
+			}
+
+			return responder
+				.setHeader('Content-Type', 'application/pdf')
+				.send(context.pdf);
+		});
 	};
+
+	return handler;
 })();

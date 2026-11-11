@@ -44,4 +44,4 @@ curl 'https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/stage/print' \
 
 **ARM Architecture (2023/08/31, v3.0.0)**
 
-> It would be nice to use ARM architecture for AWS Lambda functions (and use Apple silicon locally). However, the [`@sparticuz/chromium`](https://github.com/Sparticuz/chromium) project has not yet added support. See the comments [here](https://github.com/Sparticuz/chromium#running-locally--headlessheadful-mode).
+> It would be nice to use ARM architecture for AWS Lambda functions (and use Apple Silicon locally). However, the [`@sparticuz/chromium`](https://github.com/Sparticuz/chromium) project has not yet added support. See the comments [here](https://github.com/Sparticuz/chromium#running-locally--headlessheadful-mode).

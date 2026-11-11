@@ -9,10 +9,10 @@ build:
     sourcemap:
       type: linked
       setNodeOptions: false
+    external:
+      - '@sparticuz/chromium'
     exclude:
       - '@sparticuz/chromium'
-      - bufferutil
-      - utf-8-validate
 
 custom:
   stage: ${opt:stage, 'stage'}
