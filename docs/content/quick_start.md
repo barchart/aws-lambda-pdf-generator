@@ -8,7 +8,7 @@
 * Install the command line tools for your AWS account — here are the [instructions](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
 * Install [Node.js](https://nodejs.org/en/) — we recommend using the [Node Version Manager](https://github.com/nvm-sh/nvm).
 * Install the [Yarn](https://yarnpkg.com/) package management tool — here are the [instructions](https://classic.yarnpkg.com/en/docs/install).
-* Install the [Serverless](https://www.serverless.com/) framework — here are the [instructions](https://www.serverless.com/framework/docs/providers/aws/guide/installation/).
+* The [Serverless](https://www.serverless.com/) framework (version 4) is installed as a development dependency — however, you must [authenticate](https://www.serverless.com/framework/docs/guides/upgrading-v4#authentication) before deploying (e.g. `npx serverless login`).
 
 ## Technical Overview
 

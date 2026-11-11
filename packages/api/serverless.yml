@@ -1,6 +1,9 @@
 service: serverless-pdf-generator
 
-frameworkVersion: ">=3.38.0 <4.0.0"
+frameworkVersion: "4"
+
+build:
+  esbuild: false
 
 custom:
   stage: ${opt:stage, 'stage'}
@@ -25,10 +28,6 @@ custom:
       - Access-Control-Allow-Methods
     allowCredentials: false
 
-  apigwBinary:
-    types:
-      - '*/*'
-
 provider:
   name: aws
   runtime: nodejs20.x
@@ -51,6 +50,8 @@ provider:
 
   apiGateway:
     shouldStartNameWithService: true
+    binaryMediaTypes:
+      - '*/*'
 
 package:
   individually: true
@@ -92,4 +93,3 @@ resources:
 
 plugins:
   - serverless-webpack
-  - serverless-apigw-binary
