@@ -14,8 +14,8 @@ const LambdaHelper = require('./../common/aws/LambdaHelper');
 module.exports.handler = (() => {
 	'use strict';
 
-	const handler = (event, lambdaContext, callback) => {
-		LambdaHelper.process('Print HTML page', event, callback, async (parser, responder) => {
+	const handler = async (event, lambdaContext) => {
+		return LambdaHelper.processAsync('Print HTML page', event, async (parser, responder) => {
 			const logger = LambdaHelper.getLogger();
 
 			responder.addResponseGenerators([

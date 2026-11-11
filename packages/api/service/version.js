@@ -5,8 +5,8 @@ const LambdaHelper = require('./../common/aws/LambdaHelper');
 module.exports.handler = (() => {
 	'use strict';
 
-	const handler = (event, context, callback) => {
-		LambdaHelper.process('Read service metadata', event, callback, (parser, responder) => {
+	const handler = async (event, context) => {
+		return LambdaHelper.processAsync('Read service metadata', event, async (parser, responder) => {
 			return {
 				service: {
 					name: packageJson.name,

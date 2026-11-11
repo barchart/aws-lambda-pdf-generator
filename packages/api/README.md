@@ -4,12 +4,6 @@
 
 This project uses the [Serverless](https://serverless.com/) framework for testing and deployment.
 
-#### Installation
-
-```shell
-yarn global add serverless
-```
-
 #### Deployment
 
 Deploy the service from the project's root directory.

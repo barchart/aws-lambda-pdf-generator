@@ -39,7 +39,7 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs20.x
+  runtime: nodejs24.x
   logRetentionInDays: 90
   deploymentBucket: barchart-serverless-deployments
 
@@ -70,7 +70,7 @@ layers:
     name: serverless-headless-chromium-${self:custom.stage}-v122
     description: Layer for puppeteer to launch headless Chromium v122
     compatibleRuntimes:
-      - nodejs20.x
+      - nodejs24.x
     package:
       artifact: layers/chromium-v122.zip
 

@@ -21,8 +21,8 @@
     "version": "gulp embed-version"
   },
   "dependencies": {
-    "@barchart/common-js": "^4.21.0",
-    "@barchart/common-node-js": "^4.21.0",
+    "@barchart/common-js": "^5.6.0",
+    "@barchart/common-node-js": "^5.6.0",
     "@barchart/log4js-node-appenders": "^1.1.5",
     "@sparticuz/chromium": "122.0.0",
     "puppeteer-core": "22.4.0"

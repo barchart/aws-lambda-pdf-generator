@@ -6,21 +6,19 @@ module.exports = (() => {
 	'use strict';
 
 	const getLogger = LambdaHelper.getLogger;
-	const execute = LambdaHelper.process;
+	const executeAsync = LambdaHelper.processAsync;
 
 	Object.assign(LambdaHelper, {
-		process(description, event, callback, processor) {
-			return Promise.resolve()
-				.then(() => {
-					const logger = this.getLogger();
+		async processAsync(description, event, processor) {
+			const logger = this.getLogger();
 
-					logger.info('Starting processing [', description, ']');
+			logger.info('Starting [', description, ']');
 
-					return execute(description, event, callback, processor)
-						.then(() => {
-							logger.info('Finished [', description, ']');
-						});
-				});
+			const response = await executeAsync(description, event, processor);
+
+			logger.info('Finished [', description, ']');
+
+			return response;
 		},
 
 		getLogger() {
