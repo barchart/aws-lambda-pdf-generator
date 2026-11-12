@@ -3,7 +3,7 @@
 node_modules
 out.pdf
 
-chrome-aws-lambda
+packages/api/chromium-aws-lambda
 
 layers
 
