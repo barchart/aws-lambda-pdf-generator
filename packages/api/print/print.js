@@ -25,7 +25,17 @@ module.exports.handler = (() => {
 				new LambdaResponseGeneratorS3()
 			]);
 
-			const body = JSON.parse(Buffer.from(parser.getBody(), 'base64').toString());
+			let body;
+
+			try {
+				body = JSON.parse(Buffer.from(parser.getBody(), 'base64').toString());
+			} catch (e) {
+				body = null;
+			}
+
+			if (!is.object(body) || is.array(body)) {
+				return Promise.reject(FailureReason.from(PrinterFailureTypes.PRINT_FAILED_REQUEST_MALFORMED));
+			}
 
 			const source = body.source || null;
 			const html = body.html || null;

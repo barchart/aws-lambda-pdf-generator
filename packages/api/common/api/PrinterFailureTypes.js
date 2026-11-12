@@ -17,12 +17,17 @@ module.exports = (() => {
 			return printFailedHtmlMissing;
 		}
 
+		static get PRINT_FAILED_REQUEST_MALFORMED() {
+			return printFailedRequestMalformed;
+		}
+
 		toString() {
 			return '[PrinterFailureTypes]';
 		}
 	}
 
 	const printFailedHtmlMissing = new FailureType('PRINT_FAILED_HTML_MISSING', 'Failed to print PDF, no HTML document provided.', false, 400);
+	const printFailedRequestMalformed = new FailureType('PRINT_FAILED_REQUEST_MALFORMED', 'Failed to print PDF, the request body must be a JSON object.', false, 400);
 
 	return PrinterFailureTypes;
 })();
