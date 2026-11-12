@@ -1,4 +1,4 @@
-# @barchart/aws-lambda-pdf-generator <small>3.0.1</small>
+# @barchart/aws-lambda-pdf-generator <small>4.0.0</small>
 
 > Serverless application that coverts HTML to PDF
 

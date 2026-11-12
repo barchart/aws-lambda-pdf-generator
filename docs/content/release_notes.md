@@ -1,11 +1,33 @@
 # Release Notes
 
+## 4.0.0
+**Major Changes**
+
+* Updated the AWS SDK to version 3.
+
+**New Features**
+
+* Added environment variables that allow page errors to be logged at the warning level or ignored (set environment variables with .env files).
+
+**Technical Enhancements**
+
+* Updated Node.js runtime to version 24.
+* Updated AWS CodeBuild to use Node.js version 24.
+* Switched build process to use [esbuild](https://esbuild.github.io/) instead of [webpack](https://webpack.js.org/).
+* Updated [Lerna](https://lerna.js.org/) to the next major version (10).
+* Updated [Serverless](https://www.serverless.com/) framework to the next major version (4).
+* Updated [@barchart/common-js](https://www.npmjs.com/package/@barchart/common-js) package to the next major version (5).
+* Updated [@barchart/common-node-js](https://www.npmjs.com/package/@barchart/common-node-js) package to the next major version (5).
+* Updated [puppeteer-core](https://www.npmjs.com/package/puppeteer-core) by several major versions (25.11.0).
+* Updated [@sparticuz/chromium](https://www.npmjs.com/package/@sparticuz/chromium) by several major versions (153.0.0).
+* Removed the [serverless-apigw-binary](https://github.com/maciejtreder/serverless-apigw-binary) plugin (Serverless now has native support).
+* Updated other project dependencies implicitly.
+
 ## 3.0.1
 **Major Changes**
 
 * Updated [Chromium](https://www.chromium.org/) to version 122 (from version 116).
 * Updated [Puppeteer](https://pptr.dev/) to version 22 (from version 21).
-
 
 **Technical Enhancements**
 
