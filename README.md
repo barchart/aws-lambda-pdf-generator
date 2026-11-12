@@ -22,6 +22,10 @@ Complete documentation for installation and operation can be found [here](https:
 
 > It would be nice to use ARM architecture for AWS Lambda functions (and use Apple silicon locally). However, the [`@sparticuz/chromium`](https://github.com/Sparticuz/chromium) project has not yet added support. See the comments [here](https://github.com/Sparticuz/chromium#running-locally--headlessheadful-mode).
 
+**ARM Architecture (2026/11/12, v4.0.0)**
+
+> The current version of [`@sparticuz/chromium`](https://github.com/Sparticuz/chromium) now supports ARM architecture. However, x64 is still used for now. See the comments [here](https://github.com/Sparticuz/chromium#can-i-use-arm-or-graviton-instances).
+
 ### License
 
 This software is provided under the MIT license.
