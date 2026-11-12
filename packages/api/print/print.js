@@ -78,7 +78,13 @@ module.exports.handler = (() => {
 
 				await page.setContent(html, { waitUntil: 'networkidle0' });
 
-				context.pdf = Buffer.from(await page.pdf(settings || { }));
+				const { path, ...options } = settings || { };
+
+				if (path) {
+					logger.warn(`Ignoring [ path ] setting since writing the PDF to a custom location on disk is forbidden [ ${source} ]`);
+				}
+
+				context.pdf = Buffer.from(await page.pdf(options));
 
 				logger.info(`Printed HTML layout for [ ${source} ] [ ${html.length} ] as PDF`);
 
