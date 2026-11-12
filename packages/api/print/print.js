@@ -1,7 +1,7 @@
-const fs = require('fs');
+const fs = require('fs'),
+	url = require('url');
 
-const chromium = require('@sparticuz/chromium'),
-	puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer-core');
 
 const FailureReason = require('@barchart/common-js/api/failures/FailureReason'),
 	PrinterFailureTypes = require('./../common/api/PrinterFailureTypes');
@@ -41,13 +41,15 @@ module.exports.handler = (() => {
 			try {
 				logger.debug(`Launching headless chrome for [ ${source} ]`);
 
+				const chromium = await getChromium();
+
 				chromium.setGraphicsMode = false;
 
 				context.browser = await puppeteer.launch({
 					args: chromium.args,
 					executablePath: await chromium.executablePath(),
-					headless: chromium.headless,
-					ignoreHTTPSErrors: true
+					headless: 'shell',
+					acceptInsecureCerts: true
 				});
 
 				context.version = await context.browser.version();
@@ -70,7 +72,7 @@ module.exports.handler = (() => {
 
 				await page.setContent(html, { waitUntil: 'networkidle0' });
 
-				context.pdf = await page.pdf(settings || { });
+				context.pdf = Buffer.from(await page.pdf(settings || { }));
 
 				logger.info(`Printed HTML layout for [ ${source} ] [ ${html.length} ] as PDF`);
 
@@ -97,6 +99,36 @@ module.exports.handler = (() => {
 				.setHeader('Content-Type', 'application/pdf')
 				.send(context.pdf);
 		});
+	};
+
+	// The @sparticuz/chromium package is an ES module (only) and it is provided by
+	// a Lambda Layer. The Lambda runtime does not allow `require` of an ES module and
+	// an `import` ignores NODE_PATH (which is how Lambda exposes layer packages). So,
+	// the packages the location is found with `require.resolve` and the module is loaded
+	// with an `import` invocation.
+
+	let chromiumPromise = null;
+
+	const getChromium = () => {
+		if (chromiumPromise === null) {
+			const location = url.pathToFileURL(require.resolve('@sparticuz/chromium')).href;
+
+			chromiumPromise = (async () => {
+				let chromium;
+
+				try {
+					chromium = await import(location);
+				} catch (e) {
+					chromiumPromise = null;
+
+					throw e;
+				}
+
+				return chromium.default;
+			})();
+		}
+
+		return chromiumPromise;
 	};
 
 	return handler;

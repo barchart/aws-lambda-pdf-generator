@@ -5,7 +5,7 @@ frameworkVersion: "4"
 build:
   esbuild:
     bundle: true
-    minify: true
+    minify: false
     sourcemap:
       type: linked
       setNodeOptions: true
@@ -67,19 +67,19 @@ package:
 
 layers:
   HeadlessChromium:
-    name: serverless-headless-chromium-${self:custom.stage}-v122
-    description: Layer for puppeteer to launch headless Chromium v122
+    name: serverless-headless-chromium-${self:custom.stage}-v153
+    description: Layer for puppeteer to launch headless Chromium v153
     compatibleRuntimes:
       - nodejs24.x
     package:
-      artifact: layers/chromium-v122.zip
+      artifact: layers/chromium-v153.zip
 
 functions:
   print:
     handler: print/print.handler
-    description: Generates a PDF from HTML (using Chromium v122)
+    description: Generates a PDF from HTML (using Chromium v153)
     memorySize: 2048
-    timeout: 30
+    timeout: 28
     layers:
       - { Ref: HeadlessChromiumLambdaLayer }
     events:
