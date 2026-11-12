@@ -43,7 +43,7 @@ The endpoint expects a JSON document, with the following properties:
 
 * ```html``` - A required ```String``` which contains the HTML document itself.
 * ```source``` - An optional ```String``` describing the document.
-* ```settings``` - An optional ```Object``` which contains [puppeteer options](https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagepdfoptions).
+* ```settings``` - An optional ```Object``` which contains [puppeteer options](https://github.com/puppeteer/puppeteer/blob/puppeteer-core-v25.11.0/docs/api/puppeteer.pdfoptions.md).
 
 Here is an example:
 

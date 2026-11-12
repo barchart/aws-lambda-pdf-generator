@@ -16,7 +16,7 @@
 | ---- | ---- | -------- | -------- | ----------- |
 | source | <code>String</code> | false | false | Optional string to define the source of request |
 | html | <code>String</code> | true | false | HTML layout to print |
-| settings | <code>Object</code> | false | false | Optional [settings](https://github.com/puppeteer/puppeteer/blob/v5.2.1/docs/api.md#pagepdfoptions) passed to page.pdf() |
+| settings | <code>Object</code> | false | false | Optional [settings](https://github.com/puppeteer/puppeteer/blob/puppeteer-core-v25.11.0/docs/api/puppeteer.pdfoptions.md) passed to page.pdf() |
 
 **Example**:
 
