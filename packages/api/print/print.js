@@ -3,6 +3,8 @@ const fs = require('fs'),
 
 const puppeteer = require('puppeteer-core');
 
+const is = require('@barchart/common-js/lang/is');
+
 const FailureReason = require('@barchart/common-js/api/failures/FailureReason'),
 	PrinterFailureTypes = require('./../common/api/PrinterFailureTypes');
 
@@ -64,8 +66,12 @@ module.exports.handler = (() => {
 					}
 				});
 
-				page.on('pageerror', (error) => {
-					logger.error(error);
+				page.on('pageerror', (e) => {
+					if (processPageError(e, logger)) {
+						return;
+					}
+
+					logger.error(e);
 				});
 
 				logger.debug(`Printing HTML layout for [ ${source} ] [ ${html.length} ] as PDF`);
@@ -129,6 +135,46 @@ module.exports.handler = (() => {
 		}
 
 		return chromiumPromise;
+	};
+
+	const regex = { };
+
+	regex.errors = null;
+
+	const processPageError = (error, logger) => {
+		if (regex.errors === null) {
+			regex.errors = { };
+
+			try {
+				regex.errors.suppress = new RegExp(process.env.PAGE_ERRORS_SUPPRESSED_REGEX || '(?!)');
+			} catch (e) {
+				logger.error(`Failed to parse environment variable as regular expression for suppressing page errors [ ${process.env.PAGE_ERRORS_SUPPRESSED_REGEX} ]`);
+
+				regex.errors.suppress = null;
+			}
+
+			try {
+				regex.errors.warn = new RegExp(process.env.PAGE_ERRORS_LOGGED_AT_WARN_LEVEL_REGEX || '(?!)');
+			} catch (e) {
+				logger.error(`Failed to parse environment variable as regular expression for treating page errors as warnings [ ${process.env.PAGE_ERRORS_LOGGED_AT_WARN_LEVEL_REGEX} ]`);
+
+				regex.errors.warn = null;
+			}
+		}
+
+		if (error && is.string(error.message)) {
+			if (regex.errors.suppress && regex.errors.suppress.test(error.message)) {
+				return true;
+			}
+
+			if (regex.errors.warn && regex.errors.warn.test(error.message)) {
+				logger.warn(error);
+
+				return true;
+			}
+		}
+
+		return false;
 	};
 
 	return handler;

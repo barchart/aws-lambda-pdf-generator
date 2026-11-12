@@ -3,6 +3,9 @@
 node_modules
 out.pdf
 
+.env
+.env.*
+
 packages/api/chromium-aws-lambda
 
 layers

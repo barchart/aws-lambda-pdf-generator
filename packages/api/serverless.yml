@@ -80,6 +80,9 @@ functions:
     description: Generates a PDF from HTML (using Chromium v153)
     memorySize: 2048
     timeout: 28
+    environment:
+      PAGE_ERRORS_SUPPRESSED_REGEX: ${env:PAGE_ERRORS_SUPPRESSED_REGEX, ''}
+      PAGE_ERRORS_LOGGED_AT_WARN_LEVEL_REGEX: ${env:PAGE_ERRORS_LOGGED_AT_WARN_LEVEL_REGEX, ''}
     layers:
       - { Ref: HeadlessChromiumLambdaLayer }
     events:
