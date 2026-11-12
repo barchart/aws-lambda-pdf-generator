@@ -13,7 +13,7 @@ ${LAYERS_FOLDER}/chromium-v153.zip:
 	&& echo 'Making .zip archive...' \
 	&& cd chromium-aws-lambda \
 	&& rm -rf node_modules \
-    && npm i \
+	&& npm i \
 	&& mkdir -p bin/x64 && cp ../../../node_modules/@sparticuz/chromium/bin/* bin/x64/ \
 	&& make chromium-aws-lambda.x64.zip && mkdir -p ./../layers && mv chromium-aws-lambda.x64.zip ./../${LAYERS_FOLDER}/chromium-v153.zip \
 	&& echo 'Removing unnecessary stuff...' \
