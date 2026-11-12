@@ -7,8 +7,7 @@ phases:
 
   pre_build:
     commands:
-      - npm install yarn --location=global
-      - yarn install
+      - yarn install --frozen-lockfile
 
   build:
     commands:
